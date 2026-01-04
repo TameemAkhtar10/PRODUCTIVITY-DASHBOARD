@@ -1,0 +1,366 @@
+@font-face {
+    font-family: light;
+    src: url(./Aeonik-Light.ttf);
+}
+
+@font-face {
+    font-family: bold;
+    src: url(./Aeonik-Bold.ttf);
+}
+
+@font-face {
+    font-family: normal;
+    src: url(./Aeonik-Regular.ttf);
+}
+
+:root {
+    --first: #213448;
+    --second: #547792;
+    --third: #94B4C1;
+    --fourth: #EAE0CF;
+
+
+}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: light;
+    color: var(--first);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--second);
+}
+
+
+
+section.allelem {
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    padding-top: 80px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: absolute;
+}
+
+.elem {
+    background-color: var(--third);
+    border-radius: 0.6rem;
+    height: 260px;
+    overflow: hidden;
+    width: 238px;
+    position: relative;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all ease 0.8s;
+    box-shadow: 5p 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.elem>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.elem h2 {
+    position: absolute;
+    top: 10%;
+    font-size: 1rem;
+    left: 0;
+}
+
+.elem:active {
+    scale: 0.90;
+}
+
+.fullelem {
+    height: 100%;
+    width: 100%;
+    background-color: var(--second);
+    padding: 50px;
+    position: absolute;
+    display: none;
+}
+
+.back {
+    position: absolute;
+    top: 7%;
+    right: 5%;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 7px 10px;
+    background-color: red;
+    color: black !important;
+    font-weight: 700;
+    font-size: 1.3rem;
+    border: none;
+}
+
+.back :active {
+    scale: 0.95;
+
+}
+
+.back i {
+    color: black !important;
+
+}
+
+/* 
+.todo-fullpage {
+    display: block;
+} */
+
+.todo-fullpage h2 {
+    font-size: 3rem;
+    text-align: center;
+    font-family: bold;
+
+}
+
+.todo-fullpage .todo-container {
+    height: 84%;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-fullpage .todo-container .addtask {
+    border-radius: 10px;
+    width: 32%;
+    height: 100%;
+    background-color: var(--fourth);
+
+}
+
+.addtask h3 {
+    font-size: 1.5rem;
+    text-align: center !important;
+    margin-bottom: 1rem;
+    font-family: bold;
+    padding-top: 1rem;
+}
+
+.addtask form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+
+}
+
+.addtask form input#task {
+    width: 100%;
+    padding: 15px 13px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--fourth);
+    border: none;
+    background-color: var(--first);
+}
+
+.addtask form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    border: none;
+    color: var(--fourth);
+    background-color: var(--first);
+}
+
+.addtask form button {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    background-color: var(--second);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all ease 0.5s;
+    font-weight: 700;
+}
+
+form button:active {
+    scale: 0.93;
+}
+
+.todo-fullpage .todo-container .alltask {
+    border-radius: 10px;
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    overflow: auto;
+    padding: 1rem;
+    background-color: var(--fourth);
+
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    background-color: var(--first);
+}
+
+.task h5 {
+    color: var(--fourth);
+    font-size: 1.5rem;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.task h5 span.false {
+    opacity: 0;
+}
+
+.task h5 span.true {
+    opacity: 1;
+}
+
+.task h5 span {
+    background-color: red;
+    margin-top: 4px;
+    padding: 4px 6px;
+    border-radius: 50px;
+    color: var(--first);
+    font-size: 10px;
+}
+
+.task button {
+    padding: 10px 12px;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    color: var(--fourth);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.alltask::-webkit-scrollbar {
+    display: none;
+}
+
+#marks {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+    margin-bottom: 0.7rem;
+    padding: 5px 0;
+    width: 100%;
+}
+
+#marks input {
+    scale: 1.8;
+    cursor: pointer;
+    margin-left: 1rem;
+
+}
+
+#marks label {
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.plan-fullpage h2 {
+    font-size: 3rem;
+    font-family: bold;
+    text-align: center;
+}
+
+
+.day-planner {
+    background-color: var(--fourth);
+    height: 84%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow: auto;
+
+    justify-content: space-between;
+}
+.day-planner .day-planner-time {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 49%;
+    
+    margin-bottom: 1rem;
+}
+.day-planner-time input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: bold;
+}
+
+.day-planner-time input {
+    padding: 19px 13px;
+    font-size: 1.3rem;
+    outline: none;
+    overflow: hidden;
+    background-color: var(--second);
+    border: none;
+    border-radius: 5px;
+    color: var(--fourth);
+    font-family: normal;
+    width: 100%;
+    
+
+}
+.day-planner .day-planner-time p {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    font-size: 1rem;
+    font-family: normal;
+    color: black;
+}
+.day-planner::-webkit-scrollbar {
+display: none;
+}
+.moti-fullpage {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.moti-fullpage .motivation-container  {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+background-color: var(--fourth);
+height: 600px;
+width: 600px;
+}
