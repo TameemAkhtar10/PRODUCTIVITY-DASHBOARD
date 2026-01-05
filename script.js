@@ -1,21 +1,115 @@
 let opefeature = () => {
-    let allelem = document.querySelectorAll('.elem')
-    let fullelempage = document.querySelectorAll('.fullelem')
-    let allfullelempagebackbtn = document.querySelectorAll('.fullelem .back')
+    let nav = document.querySelector('nav');
+    let allelem = document.querySelectorAll('.elem');
+    let fullelempage = document.querySelectorAll('.fullelem');
+    let allfullelempagebackbtn = document.querySelectorAll('.fullelem .back');
+    let dashboard = document.querySelector('.allelem');
 
     allelem.forEach((elem) => {
-        elem.addEventListener('click', function () {
-            fullelempage[elem.id].style.display = 'block'
-        })
-    })
-    allfullelempagebackbtn.forEach((back) => {
-        back.addEventListener('click', function () {
-            fullelempage[back.id].style.display = 'none'
+        elem.addEventListener('click', () => {
+            dashboard.style.display = 'none';
+            fullelempage[elem.id].style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
 
-        })
-    })
-}
+    allfullelempagebackbtn.forEach((back) => {
+        back.addEventListener('click', () => {
+            fullelempage[back.id].style.display = 'none';
+            dashboard.style.display = 'block';
+            document.body.style.overflow = 'auto';
+
+        });
+    });
+};
 opefeature();
+let goalsFeature = () => {
+    let goalInput = document.querySelector('#goal-input');
+    let addGoalBtn = document.querySelector('#add-goal-btn');
+    let goalsListBox = document.querySelector('#goals-list');
+
+    if (!goalInput || !addGoalBtn || !goalsListBox) return;
+
+    // localStorage se data load
+    let goals = [];
+    if (localStorage.getItem('goals')) {
+        goals = JSON.parse(localStorage.getItem('goals'));
+    } else {
+        console.log('no goals yet...');
+    }
+
+    // goals ko UI me dikhane wala function
+    function renderGoals() {
+        let sum = ``;
+
+        goals.forEach((g, idx) => {
+            sum += `
+        <div class="goal-item">
+          <p style="${g.done ? 'text-decoration: line-through; opacity: 0.8;' : ''}">
+            ${g.text}
+          </p>
+          <div>
+            <button class="done-btn" data-id="${idx}">
+              ${g.done ? 'Undo' : 'Done'}
+            </button>
+            <button class="del-btn" data-id="${idx}">
+              Delete
+            </button>
+          </div>
+        </div>
+      `;
+        });
+
+        goalsListBox.innerHTML = sum;
+        localStorage.setItem('goals', JSON.stringify(goals));
+
+        // buttons pe events
+        let doneBtns = document.querySelectorAll('.goal-item .done-btn');
+        let delBtns = document.querySelectorAll('.goal-item .del-btn');
+
+        doneBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                let i = btn.getAttribute('data-id');
+                goals[i].done = !goals[i].done;
+                renderGoals();
+            });
+        });
+
+        delBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                let i = btn.getAttribute('data-id');
+                goals.splice(i, 1);
+                renderGoals();
+            });
+        });
+    }
+
+    renderGoals();
+
+    // Add Goal button click
+    addGoalBtn.addEventListener('click', () => {
+        let text = goalInput.value.trim();
+        if (!text) return;
+
+        goals.push({
+            text: text,
+            done: false
+        });
+
+        goalInput.value = '';
+        renderGoals();
+    });
+
+    // enter press se bhi add
+    goalInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') {
+            addGoalBtn.click();
+        }
+    });
+};
+
+goalsFeature();
+
 function todolist() {
 
     let form = document.querySelector('.addtask form')
@@ -33,32 +127,37 @@ function todolist() {
         console.log('sorrry bhai list is empty ');
 
     }
-    function TodoTask() {
-        let alltasks = document.querySelector('.alltask')
-        let sum = ``;
+ function TodoTask() {
+    let alltasks = document.querySelector('.alltask');
+    let sum = ``;
 
-        currenttask.forEach((e, idx) => {
-            sum += `
+    currenttask.forEach((e, idx) => {
+        // yaha imp class ko string 'true' / 'false' me convert kar
+        const impClass = e.imp ? 'true' : 'false';
+
+        sum += `
       <div class="task">
         <h5>
           ${e.task}
- <span class = "${e.imp}">Imp</span>   
- </h5>
+          <span class="${impClass}">Imp</span>
+        </h5>
         <button id=${idx}>Mark As Completed</button>
       </div>
     `;
-        })
+    });
 
-        alltasks.innerHTML = sum;
-        localStorage.setItem('currenttask', JSON.stringify(currenttask));
-        let completetaskbtn = document.querySelectorAll('.task button')
-        completetaskbtn.forEach((btn) => {
-            btn.addEventListener('click', function () {
-                currenttask.splice(btn.id, 1)
-                TodoTask()
-            })
-        })
-    }
+    alltasks.innerHTML = sum;
+    localStorage.setItem('currenttask', JSON.stringify(currenttask));
+
+    let completetaskbtn = document.querySelectorAll('.task button');
+    completetaskbtn.forEach((btn) => {
+        btn.addEventListener('click', function () {
+            currenttask.splice(btn.id, 1);
+            TodoTask();
+        });
+    });
+}
+
 
     TodoTask();
 
@@ -80,32 +179,268 @@ function todolist() {
 }
 todolist()
 
-let dailyplanner = ()=> {
+let dailyplanner = () => {
     let dayplandata = JSON.parse(localStorage.getItem('dayplandata')) || {}
-let dayplanner = document.querySelector('.day-planner')
-let hour = Array.from({ length: 18 }, (elem, idx) => `${6 + idx}:00 - ${7 + idx}:00`)
-let wholedaysum = ''
-hour.forEach((elem, idx) => {
-    let saveddata = dayplandata[idx] || ''
+    let dayplanner = document.querySelector('.day-planner')
+    let hour = Array.from({ length: 18 }, (elem, idx) => `${6 + idx}:00 - ${7 + idx}:00`)
+    let wholedaysum = ''
+    hour.forEach((elem, idx) => {
+        let saveddata = dayplandata[idx] || ''
 
-    wholedaysum = wholedaysum + `
+        wholedaysum = wholedaysum + `
     <div class="day-planner-time">
     <p>${elem}</p>
     <input id = ${idx} type="text" name="" placeholder='....' value = '${saveddata}'>
     </div>`
-})
+    })
 
-dayplanner.innerHTML = wholedaysum;
-let dayplannerinput = document.querySelectorAll('.day-planner input');
+    dayplanner.innerHTML = wholedaysum;
+    let dayplannerinput = document.querySelectorAll('.day-planner input');
 
-dayplannerinput.forEach((elem) => {
-    elem.addEventListener('input', () => {
-        dayplandata[elem.id] = elem.value;
-        localStorage.setItem('dayplandata', JSON.stringify(dayplandata))
+    dayplannerinput.forEach((elem) => {
+        elem.addEventListener('input', () => {
+            dayplandata[elem.id] = elem.value;
+            localStorage.setItem('dayplandata', JSON.stringify(dayplandata))
 
 
 
+        });
     });
-});
 }
-dailyplanner ()
+dailyplanner()
+
+let motivationalquote = () => {
+
+    let motivationquotes = document.querySelector('.motivation-2 h1')
+    let motivationauthor = document.querySelector('.motivation-3 h3')
+
+    let quotes = async () => {
+        try {
+            let response = await fetch(
+                "https://dummyjson.com/quotes/random?tag=motivational",
+
+            );
+
+
+            let data = await response.json();
+
+            motivationquotes.innerHTML = data.quote
+            motivationauthor.innerHTML = "- " + data.author
+
+
+        } catch (error) {
+            console.error("Error fetching quotes:", error);
+        }
+    };
+
+    quotes();
+
+}
+let PomoDomo = () => {
+    let startbtn = document.querySelector('.start-btn')
+    let resetbtn = document.querySelector('.reset-btn')
+    let pausebtn = document.querySelector('.Pause-btn')
+    let heading = document.querySelector('.pomo-heading')
+    let isworksession = true;
+    motivationalquote()
+    let maininterval = null;
+    let totalsecond = 25 * 60;
+    let timer = document.querySelector('.timeh')
+    let Updatetimer = () => {
+        let minutes = Math.floor(totalsecond / 60)
+        let seconds = totalsecond % 60;
+        timer.innerHTML = `${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')}`
+    }
+    function starttimer() {
+        clearInterval(maininterval)
+        if (isworksession) {
+            maininterval = setInterval(() => {
+                if (totalsecond > 0) {
+                    totalsecond--;
+                    Updatetimer()
+                }
+                else {
+                    isworksession = false;
+                    clearInterval(maininterval)
+                    timer.innerHTML = '05:00'
+                    heading.innerHTML = "Rest Time 🤩"
+                    totalsecond = 25 * 60;
+                }
+
+            }, 1000);
+        }
+        else {
+            maininterval = setInterval(() => {
+                if (totalsecond > 0) {
+                    totalsecond--;
+                    Updatetimer()
+                }
+                else {
+                    isworksession = true;
+                    clearInterval(maininterval)
+                    timer.innerHTML = '25:00';
+                    heading.innerHTML = "Focus Time ⏱️"
+
+                    totalsecond = 5 * 60
+
+                }
+
+            }, 5);
+        }
+
+    }
+    function pausetimer() {
+        clearInterval(maininterval)
+
+    }
+    function resettimer() {
+        clearInterval(maininterval)
+        maininterval = null
+        heading.innerHTML = "Focus Time ⏱️"
+        totalsecond = 25 * 60
+        Updatetimer()
+
+    }
+    startbtn.addEventListener('click', starttimer)
+    pausebtn.addEventListener('click', pausetimer)
+    resetbtn.addEventListener('click', resettimer)
+}
+PomoDomo()
+let header = () => {
+
+    let API_KEY = '751765e0045f4357b15105848252412';
+    let city = 'kamptee'
+    let time = document.querySelector('.header-time')
+    let header = document.querySelector('header')
+    let cityyy = document.querySelector('.left h2')
+    let temp = document.querySelector('.right h2')
+    let kaisa = document.querySelector('.right h3')
+    let humadity = document.querySelector('.right .humadity')
+    let waqt = document.querySelector('.left h3')
+    let wind = document.querySelector('.right .wind')
+
+
+    let FetchTemp = async () => {
+        let raw = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city},IN`)
+        const real = await raw.json()
+        console.log(real);
+        let floortemp = Math.floor(real.current.temp_c)
+        temp.innerHTML = `${floortemp}°C`
+
+        if (floortemp > 35) {
+            kaisa.innerHTML = `Very Hot 🔥`
+        }
+        else if (floortemp >= 28 && floortemp < 35) {
+            kaisa.innerHTML = "Sunny ☀️";
+        }
+        else if (floortemp >= 20 && floortemp < 28) {
+            kaisa.innerHTML = "Pleasant 🌤️";
+        }
+        else if (floortemp >= 10 && floortemp < 20) {
+            kaisa.innerHTML = "Cool 🌥️";
+        }
+        else {
+            kaisa.innerHTML = "Cold ❄️";
+        }
+        humadity.innerHTML = `Humadity : ${real.current.humidity}%`
+        let windfloor = Math.floor(real.current.wind_kph)
+        wind.innerHTML = ` Wind : ${windfloor}km/h `
+        cityyy.innerHTML = `${real.location.name} ${real.location.region}`
+        // console.log(real.location.name);
+
+    }
+
+
+
+    FetchTemp()
+    const totaldaysOfWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ]; const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+
+
+    let getdaytime = () => {
+        let date = new Date()
+        let daysOfWeek = totaldaysOfWeek[date.getDay()]
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
+        let seconds = date.getSeconds()
+        let tarikh = date.getDate()
+        let month = months[date.getMonth()]
+        let year = date.getFullYear()
+
+        if (hours > 12) {
+            time.innerHTML = ` ${daysOfWeek} ${String(hours).padStart('2', '0') - 12}:${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')}PM`
+        }
+        else {
+            time.innerHTML = `${daysOfWeek} ${hours}:${minutes}:${seconds}  AM`
+
+        }
+        waqt.innerHTML = `${tarikh} ${month} ${year}`
+
+    }
+
+
+
+    setInterval(() => {
+        getdaytime()
+
+    }, 1000);
+
+
+}
+
+header()
+
+
+function ThemeBtnnn() {
+
+
+    const themeBtn = document.querySelector('#themeBtn');
+
+    const themes = ['cream', 'dark', 'forest'];
+    let currentThemeIndex = 0;
+
+    // LOAD SAVED THEME
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.classList.remove('dark', 'forest');
+        if (savedTheme !== 'cream') {
+            document.body.classList.add(savedTheme);
+        }
+        currentThemeIndex = themes.indexOf(savedTheme);
+    }
+
+    // THEME SWITCH
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.remove('dark', 'forest');
+
+        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+        const newTheme = themes[currentThemeIndex];
+
+        if (newTheme !== 'cream') {
+            document.body.classList.add(newTheme);
+        }
+
+        localStorage.setItem('theme', newTheme);
+    });
+}
+ThemeBtnnn()
