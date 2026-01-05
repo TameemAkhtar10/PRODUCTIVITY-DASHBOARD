@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: light;
     src: url(./Aeonik-Light.ttf);
@@ -89,7 +90,17 @@ nav {
     padding: 0 30px;
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
-
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+#app-wrapper {
+  max-width: 420px;   
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--bg, #e5e5e5);
+}
 nav h1 {
     font-size: 1.6rem;
     font-family: normal;
@@ -240,32 +251,37 @@ body.forest header {
 
 
 .fullelem {
-    height: 100vh;
-    width: 100vw;
     background-color: rgba(15, 23, 42, 0.35);
-    padding: 50px;
-    position: fixed;
     inset: 0;
     padding-top: 90px;
     display: none;
     z-index: 1000;
     backdrop-filter: blur(6px);
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 120px 16px 40px;
 }
 
+
+
+
 .back {
-    position: absolute;
-    top: 15%;
-    right: 5%;
+
     cursor: pointer;
     border-radius: 999px;
     padding: 7px 11px;
-    background-color: var(--danger);
+    background-color: red;
     color: #f9fafb !important;
     font-weight: 700;
     font-size: 1.3rem;
     border: none;
-    box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+  position: absolute;
+  top: 70px;
+  right: 16px;
+  z-index: 99;
 }
+
 
 .back:active {
     scale: 0.95;
@@ -778,15 +794,110 @@ body.forest header {
 .goal-item .del-btn:hover {
     background-color: #b91c1c;
 }
+/* ===============================
+   UNIVERSAL RESPONSIVE FIXES
+================================ */
+
+/* Large screens (2K / 4K) */
+@media (min-width: 1600px) {
+
+    #main {
+        max-width: 1600px;
+        margin: auto;
+    }
+
+    header {
+        padding: 3rem 4rem;
+    }
+
+    .header-time {
+        font-size: 4.2rem;
+    }
+
+    .elem {
+        width: 280px;
+        height: 300px;
+    }
+
+    .todo-fullpage h2,
+    .plan-fullpage h2,
+    .goals-fullpage h2 {
+        font-size: 3.2rem;
+    }
+}
+
+/* ===============================
+   LAPTOP / DESKTOP
+================================ */
+@media (max-width: 1200px) {
+
+    .allfeatures {
+        justify-content: center;
+    }
+
+    .elem {
+        width: 220px;
+        height: 250px;
+    }
+
+    .todo-fullpage .todo-container {
+        gap: 1.2rem;
+    }
+
+    .todo-fullpage .addtask {
+        width: 40%;
+    }
+
+    .todo-fullpage .alltask {
+        width: 58%;
+    }
+}
+
+/* ===============================
+   TABLET (iPad etc.)
+================================ */
+@media (max-width: 992px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .right h2 {
+        padding-right: 0;
+    }
+
+    .elem {
+        width: 45%;
+        height: 240px;
+    }
+
+    .todo-fullpage .todo-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .todo-fullpage .addtask,
+    .todo-fullpage .alltask {
+        width: 100%;
+    }
+
+    .goals-card {
+        width: 100%;
+        padding: 24px;
+    }
+}
+
+/* ===============================
+   MOBILE (<=768px)
+================================ */
 @media (max-width: 768px) {
 
     nav {
-        padding: 0 16px;
-        height: auto;
         flex-direction: column;
         gap: 10px;
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding: 14px;
     }
 
     nav h1 {
@@ -795,136 +906,128 @@ body.forest header {
     }
 
     #main {
-        padding-top: 140px;
-    }
-
-    header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-        padding: 1.5rem;
-    }
-
-    .header-time {
-        font-size: 2.2rem;
-    }
-
-    .left h2 {
-        font-size: 1.6rem;
-    }
-
-    .right h2 {
-        font-size: 2rem;
-        padding-right: 0;
+        padding-top: 150px;
     }
 
     section.allelem {
-        padding: 0 16px 40px;
-    }
-
-    .allfeatures {
-        justify-content: center;
+        padding: 0 14px 30px;
     }
 
     .elem {
         width: 100%;
-        max-width: 320px;
         height: 220px;
     }
 
-    /* FULL PAGE */
     .fullelem {
-        padding: 20px;
-        padding-top: 110px;
+        padding: 16px;
+        padding-top: 120px;
     }
 
     .back {
-        top: 12%;
+        top: 10%;
         right: 6%;
     }
 
-    /* TODO PAGE */
-    .todo-fullpage .todo-container {
-        flex-direction: column;
-        height: auto;
+    .motivation-container {
+        width: 95% !important;
     }
 
-    .todo-fullpage .todo-container .addtask,
-    .todo-fullpage .todo-container .alltask {
-        width: 100%;
-        height: auto;
-    }
-
-    /* DAY PLANNER */
-    .day-planner {
-        padding: 1.2rem;
-    }
-
-    .day-planner .day-planner-time {
-        width: 100%;
-    }
-
-    /* MOTIVATION */
-    .moti-fullpage .motivation-container {
-        width: 95%;
-    }
-
-    .motivation-2 h1 {
-        font-size: 1.4rem;
-    }
-
-    /* POMODORO */
     .timeh {
         font-size: 3.8rem;
     }
 
     .pomobtns {
-        display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
     }
-
-    /* GOALS */
-    .goals-card {
-        padding: 22px;
-        border-radius: 22px;
-    }
-
-    .goals-input-row {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .goals-input-row button {
-        width: 100%;
-    }
-
 }
-@media (max-width: 1024px) {
+
+/* ===============================
+   SMALL MOBILE (<=480px)
+================================ */
+@media (max-width: 480px) {
+
+    nav button {
+        width: 100%;
+        justify-content: center;
+    }
 
     header {
-        padding: 1.8rem;
+        padding: 1.2rem;
     }
 
     .header-time {
-        font-size: 2.8rem;
+        font-size: 1.8rem;
+    }
+
+    .left h2 {
+        font-size: 1.4rem;
+    }
+
+    .right h2 {
+        font-size: 1.6rem;
     }
 
     .elem {
-        width: 200px;
-        height: 240px;
+        height: 200px;
     }
 
-    .todo-fullpage .todo-container {
-        gap: 1rem;
+    .addtask form input,
+    .addtask form textarea {
+        font-size: 0.85rem;
     }
 
-    .todo-fullpage .todo-container .addtask {
-        width: 38%;
+    .goal-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
 
-    .todo-fullpage .todo-container .alltask {
-        width: 60%;
+    .goal-item button {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 360px) {
+
+    .header-time {
+        font-size: 1.5rem;
     }
 
+    .elem {
+        height: 180px;
+    }
+
+    .timeh {
+        font-size: 3rem;
+    }
+}
+/* ===== CARDS FIX ===== */
+.elem,
+.todo-container,
+.goals-card,
+.motivation-container {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+/* Quote box */
+.quote-box {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Forms */
+input,
+textarea,
+button {
+  width: 100%;
+}
+
+/* Buttons row */
+.pomobtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
