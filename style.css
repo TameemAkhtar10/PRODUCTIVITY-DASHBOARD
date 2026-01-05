@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: light;
     src: url(./Aeonik-Light.ttf);
@@ -16,45 +15,39 @@
 
 
 /* default = cream */
+/* --- GLOBAL & THEMES --- */
 :root {
     --first: #111827;
     --second: #f5efe6;
     --third: #eadfd1;
     --fourth: #ffffff;
-
     --accent: #2563eb;
     --accent-soft: #dbeafe;
     --danger: #ef4444;
     --border-soft: #e5e7eb;
 }
 
-/* DARK THEME */
 body.dark {
     --first: #e5e7eb;
     --second: #020617;
     --third: #111827;
     --fourth: #020617;
-
     --accent: #38bdf8;
     --accent-soft: #0f172a;
     --danger: #f97373;
     --border-soft: #1f2937;
 }
 
-/* FOREST THEME */
 body.forest {
     --first: #102a27;
     --second: #e7f3ec;
     --third: #c7e4d2;
     --fourth: #ffffff;
-
     --accent: #15803d;
     --accent-soft: #dcfce7;
     --danger: #b91c1c;
     --border-soft: #a7cbb6;
 }
-
-
 
 * {
     margin: 0;
@@ -67,91 +60,103 @@ body.forest {
 html,
 body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    /* Height auto rakhi h taki scroll ho sake */
     background-color: var(--second);
+    overflow-x: hidden;
+    /* Phone pe side scroll na ho */
 }
 
-body, nav, section, div, button, input, textarea {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-
+/* --- MOBILE NAVIGATION --- */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 60px;
+    /* Mobile pe thoda chota */
     background: var(--third);
     z-index: 2000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    padding: 0 15px;
+    /* Side padding kam kar di */
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 }
 
 nav h1 {
-    font-size: 1.6rem;
+    font-size: 1.1rem;
+    /* Phone pe title chota */
     font-family: normal;
+    white-space: nowrap;
 }
 
 nav button {
     background-color: var(--fourth);
     color: var(--first);
-    padding: 9px 18px;
-    font-size: 1rem;
+    padding: 7px 14px;
+    /* Tap karne ke liye sahi size */
+    font-size: 0.85rem;
     font-family: normal;
     border-radius: 999px;
     border: 1px solid var(--border-soft);
     cursor: pointer;
 }
 
-nav button:hover {
-    background-color: var(--accent-soft);
-    border-color: var(--accent);
+body,
+nav,
+section,
+div,
+button,
+input,
+textarea {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-nav button:active {
-    scale: 0.97;
+/* Tablets and Laptops */
+@media screen and (min-width: 768px) {
+    nav {
+        height: 70px;
+        padding: 0 30px;
+    }
+
+    nav h1 {
+        font-size: 1.6rem;
+    }
+
+    nav button {
+        padding: 9px 18px;
+        font-size: 1rem;
+    }
 }
 
 
-#main {
-    padding-top: 80px;
-}
-
-section.allelem {
-    width: 100%;
-    padding: 0 40px 40px 40px;
-    position: relative;
-    min-height: calc(100vh - 120px);
-}
-
-section.allelem .allfeatures {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-
+/* --- MOBILE HEADER STYLES --- */
 header {
     background-image: url("https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=1200&auto=format&fit=crop&q=80");
     background-position: center;
     background-size: cover;
-    width: 99.6%;
-    margin: 1rem 0;
+    width: 95%;
+    /* Phone pe thoda margin side me */
+    margin: 1rem auto;
+    /* Center karne ke liye */
     border-radius: 16px;
-    padding: 2rem 2.5rem;
+    padding: 1.5rem;
+    /* Padding kam ki mobile ke liye */
     display: flex;
+    flex-direction: column;
+    /* Phone pe upar niche items */
     align-items: center;
-    justify-content: space-between;
+    text-align: center;
+    /* Text center me */
+    justify-content: center;
     color: white !important;
-    margin-bottom: 1rem;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    gap: 15px;
 }
 
+/* Theme Images - Same as before */
 body.dark header {
     background-image: url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1200&auto=format&fit=crop&q=80");
 }
@@ -162,313 +167,306 @@ body.forest header {
 
 .header-time {
     color: white;
-    font-size: 3.6rem;
+    font-size: 2.5rem;
+    /* Phone pe chota size */
     font-family: bold;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .left h2 {
     color: white;
-    font-size: 2.4rem;
+    font-size: 1.5rem;
+    /* Heading size kam kiya */
     font-family: normal;
 }
 
 .left .date {
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: #e5e7eb;
 }
 
 .right h2 {
     color: white;
-    font-size: 3rem;
+    font-size: 1.8rem;
+    /* Quote/Text chota kiya */
     font-family: normal;
-    padding-right: 2.5rem;
+    padding-right: 0;
+    /* Padding hata di center karne k liye */
 }
 
-.right > h3 {
+.right>h3 {
     color: #e5e7eb;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-family: light;
 }
 
-.right > h4 {
+.right>h4 {
     color: #e5e7eb;
-    font-size: 0.95rem;
-    font-family: light;
-    letter-spacing: 2px;
-    padding-top: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
 }
 
+@media screen and (min-width: 768px) {
+    header {
+        width: 99.6%;
+        flex-direction: row;
+        /* Desktop pe side-by-side */
+        justify-content: space-between;
+        text-align: left;
+        padding: 2rem 2.5rem;
+    }
 
+    .header-time {
+        font-size: 3.6rem;
+    }
+
+    .left h2 {
+        font-size: 2.4rem;
+    }
+
+    .left .date {
+        font-size: 1.3rem;
+    }
+
+    .right h2 {
+        font-size: 3rem;
+        padding-right: 2.5rem;
+    }
+
+    .right>h3 {
+        font-size: 1.4rem;
+    }
+
+    .right>h4 {
+        font-size: 0.95rem;
+    }
+}
+
+/* --- MAIN WRAPPER --- */
+#main {
+    padding-top: 75px;
+    /* Navbar ke liye space */
+}
+
+section.allelem {
+    width: 100%;
+    padding: 15px;
+    /* Mobile pe kam padding */
+    min-height: calc(100vh - 100px);
+}
+
+/* FLEX ki jagah GRID use kar rhe hain taki responsive easy ho */
+section.allelem .allfeatures {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    /* Chote phone pe 2 cards dikhenge */
+    gap: 15px;
+}
+
+/* --- CARDS (ELEM) --- */
 .elem {
     background-color: var(--third);
     border-radius: 14px;
-    height: 260px;
-    overflow: hidden;
-    width: 238px;
-    position: relative;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
-}
-
-.elem > img {
-    height: 100%;
+    height: 200px;
+    /* Mobile pe height thodi kam */
     width: 100%;
-    object-fit: cover;
-    filter: saturate(1.1);
+    /* Grid ke hisaab se auto width */
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
 }
 
 .elem h2 {
     position: absolute;
-    top: 12%;
-    left: 12px;
-    font-size: 1.05rem;
-    padding: 6px 11px;
+    top: 10px;
+    left: 10px;
+    font-size: 0.85rem;
+    /* Mobile pe text chota */
+    padding: 5px 10px;
     border-radius: 999px;
     background: rgba(15, 23, 42, 0.8);
     color: #f9fafb;
 }
 
-.elem:hover {
-    transform: translateY(-4px);
-}
-
-.elem:active {
-    scale: 0.95;
-}
-
-
+/* --- FULL PAGE MODAL (FULL ELEM) --- */
 .fullelem {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(15, 23, 42, 0.35);
-    padding: 50px;
+    background-color: rgba(15, 23, 42, 0.6);
+    padding: 15px;
+    padding-top: 80px;
+    /* Back button ke liye space */
     position: fixed;
     inset: 0;
-    padding-top: 90px;
     display: none;
-    z-index: 1000;
-    backdrop-filter: blur(6px);
+    z-index: 3000;
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    /* Phone pe content scroll ho sake */
 }
 
 .back {
-    position: absolute;
-    top: 15%;
-    right: 5%;
-    cursor: pointer;
-    border-radius: 999px;
-    padding: 7px 11px;
-    background-color: var(--danger);
-    color: #f9fafb !important;
-    font-weight: 700;
-    font-size: 1.3rem;
-    border: none;
-    box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+    position: fixed;
+    /* Phone pe upar fix rahega */
+    top: 20px;
+    right: 20px;
+    z-index: 3100;
+    padding: 8px 15px;
+    font-size: 1rem;
 }
-
-.back:active {
-    scale: 0.95;
-}
-
 
 .todo-fullpage h2 {
-    font-size: 2.6rem;
-    text-align: center;
-    font-family: bold;
+    font-size: 1.8rem;
+    /* Heading choti mobile ke liye */
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    section.allelem {
+        padding: 0 40px 40px 40px;
+    }
+
+    section.allelem .allfeatures {
+        /* Desktop pe fixed 238px width maintain karega */
+        grid-template-columns: repeat(auto-fill, 238px);
+        gap: 20px;
+    }
+
+    .elem {
+        height: 260px;
+    }
+
+    .elem h2 {
+        font-size: 1.05rem;
+        top: 12%;
+        left: 12px;
+    }
+
+    .fullelem {
+        padding: 50px;
+        padding-top: 90px;
+    }
+
+    .back {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        font-size: 1.3rem;
+    }
+
+    .todo-fullpage h2 {
+        font-size: 2.6rem;
+    }
 }
 
 
+
+
+
+/* --- TODO LAYOUT (MOBILE READY) --- */
 .todo-fullpage .todo-container {
-    height: 84%;
-    width: 100%;
-    overflow: hidden;
-    margin-top: 2.3rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 1.5rem;
-}
-
-
-.todo-fullpage .todo-container .addtask {
-    border-radius: 18px;
-    width: 32%;
-    height: 100%;
-    background-color: var(--fourth);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
-}
-
-.addtask h3 {
-    font-size: 1.6rem;
-    text-align: center !important;
-    font-family: bold;
-    padding: 1.1rem 1rem 0.4rem;
-}
-
-.addtask form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0 1.1rem 1.1rem;
-    gap: 0.7rem;
+    /* Phone pe upar-niche dikhega */
+    height: auto;
+    /* Height fixed 84% se hata di taki scroll ho sake */
+    width: 100%;
+    margin-top: 1.5rem;
+    gap: 1.5rem;
+    overflow-y: visible;
+    /* Hidden hata diya mobile ke liye */
 }
 
+/* Add Task Box - Mobile Pe Full Width */
+.todo-fullpage .todo-container .addtask {
+    width: 100%;
+    height: auto;
+    /* Content ke hisaab se bada hoga */
+    border-radius: 18px;
+    background-color: var(--fourth);
+    padding-bottom: 1rem;
+}
+
+/* All Tasks Box - Mobile Pe Full Width */
+.todo-fullpage .todo-container .alltask {
+    width: 100%;
+    min-height: 300px;
+    /* Thodi jagah khali dikhe */
+    height: auto;
+    border-radius: 18px;
+    padding: 1.1rem;
+    overflow: visible;
+    /* Taaki phone screen pe scroll ho sake */
+}
+
+/* Input boxes ko mobile keyboard ke liye bada kiya */
 .addtask form input#task,
 .addtask form textarea {
-    width: 100%;
-    padding: 13px 14px;
-    border-radius: 10px;
-    outline: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    border: none;
-    background-color: #111827;
-    color: #f9fafb;
+    font-size: 16px;
+    /* 16px se niche iOS/Android zoom nahi karta, best h */
+    padding: 15px;
 }
 
-.addtask form input#task::placeholder,
-.addtask form textarea::placeholder {
-    color: rgba(249, 250, 251, 0.6);
-}
-
-.addtask form textarea {
-    min-height: 90px;
-    resize: vertical;
-}
-
-#marks {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start !important;
-    margin-bottom: 0.4rem;
-    padding: 4px 0;
-    width: 100%;
-    gap: 0.6rem;
-}
-
-#marks input {
-    scale: 1.3;
-    cursor: pointer;
-}
-
-#marks label {
-    font-size: 0.95rem;
-    cursor: pointer;
-    color: #4b5563;
-}
-
-
-.addtask form button {
-    width: 100%;
-    padding: 13px 20px;
-    border-radius: 999px;
-    outline: none;
-    font-size: 1rem;
-    border: none;
-    background-color: var(--accent);
-    cursor: pointer;
-    font-weight: 700;
-    color: #f9fafb;
-    margin-top: 0.3rem;
-    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
-}
-
-.addtask form button:hover {
-    background-color: #1d4ed8;
-}
-
-.addtask form button:active {
-    scale: 0.97;
-}
-
-
-.todo-fullpage .todo-container .alltask {
-    border-radius: 18px;
-    width: 65%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    overflow: auto;
-    padding: 1.1rem;
-    background-color: var(--fourth);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
-}
-
-.alltask::-webkit-scrollbar {
-    width: 6px;
-}
-
-.alltask::-webkit-scrollbar-thumb {
-    background-color: #d1d5db;
-    border-radius: 999px;
-}
-
+/* Task item responsive (mobile pe text overflow na ho) */
 .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.9rem 1rem;
-    border-radius: 12px;
-    width: 100%;
-    background-color: #111827;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Agar task lamba ho toh wrap ho jaye */
+    gap: 10px;
+    padding: 1rem;
 }
 
 .task h5 {
-    color: #f9fafb;
-    font-size: 1.1rem;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-.task h5 span {
-    padding: 3px 9px;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    background-color:red;
-    color: #111827;
+    font-size: 1rem;
+    word-break: break-word;
+    /* Lamba word screen se bahar nahi jayega */
 }
 
-.task h5 span.false {
-    opacity: 0;
-}
+@media screen and (min-width: 768px) {
+    .todo-fullpage .todo-container {
+        flex-direction: row;
+        /* Desktop pe side-by-side */
+        height: 84%;
+        overflow: hidden;
+        justify-content: space-between;
+    }
 
-.task h5 span.true {
-    opacity: 1;
-}
+    .todo-fullpage .todo-container .addtask {
+        width: 32%;
+        height: 100%;
+    }
 
-.task button {
-    padding: 8px 13px;
-    background-color: green;
-    border: none;
-    border-radius: 8px;
-    color: #f9fafb;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 500;
+    .todo-fullpage .todo-container .alltask {
+        width: 65%;
+        height: 100%;
+        overflow: auto;
+    }
 }
 
 
+/* --- DAY PLANNER (MOBILE READY) --- */
 .plan-fullpage h2 {
-    font-size: 2.6rem;
-    font-family: bold;
+    font-size: 1.8rem;
+    /* Mobile pe heading choti */
     text-align: center;
+    margin-top: 10px;
 }
 
 .day-planner {
     background-color: var(--fourth);
-    height: 84%;
+    height: auto;
+    /* Fixed height hata di taki phone pe scroll ho sake */
     width: 100%;
     border-radius: 18px;
-    padding: 2rem;
-    margin-top: 2.3rem;
+    padding: 1.2rem;
+    /* Mobile pe padding thodi kam */
+    margin-top: 1.5rem;
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    overflow: auto;
-    justify-content: space-between;
+    flex-direction: column;
+    /* Phone pe ek ke niche ek */
+    align-items: center;
+    overflow: visible;
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
 }
 
@@ -476,456 +474,296 @@ body.forest header {
     display: flex;
     align-items: center;
     position: relative;
-    width: 49%;
-    margin-bottom: 1rem;
+    width: 100%;
+    /* Mobile pe poori width */
+    margin-bottom: 1.2rem;
+    /* Gap thoda badhaya */
 }
 
 .day-planner-time input {
-    padding: 18px 13px;
-    font-size: 1.1rem;
-    outline: none;
-    background-color: var(--second);
-    border: 1px solid var(--border-soft);
-    border-radius: 10px;
-    color: var(--first);
-    font-family: normal;
+    padding: 22px 13px 12px 13px;
+    /* Top padding badhai taki placeholder piche na chupe */
+    font-size: 1rem;
     width: 100%;
 }
 
-.day-planner-time input::placeholder {
-    color: #9ca3af;
-    font-family: bold;
-}
-
 .day-planner .day-planner-time p {
-    position: absolute;
-    top: 9%;
-    left: 3%;
-    font-size: 0.9rem;
-    font-family: normal;
-    color: #6b7280;
+    top: 5px;
+    /* Position thodi adjust ki */
+    left: 10px;
+    font-size: 0.75rem;
+    /* Label chota kiya */
 }
 
-.day-planner::-webkit-scrollbar {
-    width: 6px;
+@media screen and (min-width: 768px) {
+    .plan-fullpage h2 {
+        font-size: 2.6rem;
+    }
+
+    .day-planner {
+        flex-direction: row;
+        /* Desktop pe side-by-side */
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 84%;
+        padding: 2rem;
+        overflow: auto;
+    }
+
+    .day-planner .day-planner-time {
+        width: 49%;
+        /* Wapas 2 items per row */
+    }
+
+    .day-planner-time input {
+        padding: 18px 13px;
+    }
+
+    .day-planner .day-planner-time p {
+        top: 9%;
+        font-size: 0.9rem;
+    }
 }
 
-.day-planner::-webkit-scrollbar-thumb {
-    background-color: #d1d5db;
-    border-radius: 999px;
-}
 
 
+
+/* --- MOTIVATION (MOBILE READY) --- */
 .moti-fullpage .motivation-container {
-    position: absolute;
+    position: relative;
+    /* Absolute ki jagah relative taki auto center ho sake scroll ke sath */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--fourth);
     border-radius: 18px;
-    width: 60%;
-    border: 6px solid var(--third);
+    width: 92%;
+    /* Mobile pe poori screen cover karega */
+    border: 4px solid var(--third);
+    /* Border thoda patla mobile ke liye */
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.25);
 }
 
-.moti-fullpage .motivation-container .container-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.motivation-1 {
-    padding: 1rem;
-    display: flex;
-    justify-content: flex-start;
-}
-
 .motivation-1 h2 {
-    background-color: var(--second);
-    border-radius: 10px;
-    font-size: 1.5rem;
-    font-family: normal;
-    text-transform: capitalize;
-    font-weight: 700;
-    padding: 1rem 1.2rem;
+    font-size: 1.1rem;
+    /* Phone pe chota size */
+    padding: 0.8rem 1rem;
 }
 
 .motivation-2 h1 {
-    padding: 0.5rem 1.5rem;
-    font-size: 1.9rem;
-    font-family: normal;
-}
-
-.motivation-3 {
-    display: flex;
-    justify-content: flex-end;
-    padding-bottom: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
+    font-size: 1.4rem;
+    /* Quote ka font chota taki 3-4 line me na jaye */
+    line-height: 1.4;
 }
 
 .motivation-3 h3 {
-    padding: 10px 20px;
-    background-color: var(--second);
-    border-radius: 10px;
-    font-size: 1.4rem;
-    font-family: normal;
-    text-transform: capitalize;
-    font-weight: 700;
+    padding: 8px 16px;
+    font-size: 1.1rem;
+    /* Author name size adjust */
 }
 
+/* Background image mobile pe chupi na rahe */
 .motivation-wrapper img {
-    position: absolute;
-    top: 4%;
-    right: 5%;
-    opacity: 0.25;
+    width: 60px;
+    /* Thoda chota kiya */
+    top: 2%;
+    right: 3%;
+    opacity: 0.15;
 }
 
-
-.pomodor-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 3rem;
-    font-family: bold;
-}
-
-.pmo-fullpage > h1 {
-    font-size: 2.8rem;
-    text-align: center;
-}
-
-.timeh {
-    font-family: bold;
-    font-size: 5.5rem;
-    color: var(--accent);
-    margin: 25px 0;
-}
-
-.btnpomo {
-    padding: 7px 22px;
-    border: 1px solid var(--border-soft);
-    cursor: pointer;
-    font-family: normal;
-    margin: 0 7px;
-    color: var(--first);
-    font-size: 1rem;
-    border-radius: 999px;
-    background-color: var(--fourth);
-    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
-}
-
-.btnpomo:hover {
-    background-color: var(--accent-soft);
-    border-color: var(--accent);
-}
-
-.btnpomo:active {
-    scale: 0.96;
-}
-/* ============ GOALS FULL PAGE ============ */
-
-.goals-fullpage h2 {
-    font-size: 2.6rem;
-    font-family: bold;
-    text-align: left;
-    padding-left: 24px;
-    text-transform: capitalize;
-}
-
-/* outer wrapper (center card) */
-.goals-wrapper {
-    margin-top: 2.3rem;
-    height: 84%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* inner card, theme-based colors */
-.goals-card {
-    width: 92%;
-    max-width: 1150px;
-    height: 100%;
-    background: radial-gradient(circle at top left,
-                rgba(255, 255, 255, 0.16),
-                rgba(0, 0, 0, 0.18));
-    border-radius: 36px;
-    padding: 32px 36px;
-    box-shadow: 0 25px 80px rgba(15, 23, 42, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(12px);
-}
-
-/* top input row */
-.goals-input-row {
-    background-color: rgba(255, 255, 255, 0.09);
-    border-radius: 28px;
-    padding: 18px 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-/* input */
-.goals-input-row input {
-    flex: 1;
-    border-radius: 18px;
-    border: none;
-    outline: none;
-    padding: 14px 16px;
-    font-size: 1rem;
-    font-family: normal;
-    background-color: rgba(255, 255, 255, 0.16);
-    color: var(--first);
-}
-
-.goals-input-row input::placeholder {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* Add Goal button */
-.goals-input-row button {
-    padding: 14px 28px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1.05rem;
-    font-family: bold;
-    background: linear-gradient(135deg, var(--accent), #1d4ed8);
-    color: #f9fafb;
-    box-shadow: 0 14px 28px rgba(37, 99, 235, 0.45);
-    white-space: nowrap;
-}
-
-.goals-input-row button:active {
-    scale: 0.97;
-}
-
-/* list area */
-.goals-list {
-    margin-top: 22px;
-    height: calc(100% - 110px);
-    background-color: rgba(0, 0, 0, 0.18);
-    border-radius: 26px;
-    padding: 18px 20px;
-    overflow-y: auto;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
-/* future goal items (jab JS se add karega) */
-.goal-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 14px;
-    border-radius: 14px;
-    margin-bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.12);
-    color: #f9fafb;
-}
-
-.goal-item p {
-    flex: 1;
-    font-size: 0.95rem;
-}
-/* goals list ke buttons (Done + Delete) */
-.goal-item button {
-    margin-left: 8px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-family: normal;
-    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
-}
-.goal-item .done-btn {
-    background-color: var(--accent-soft);  /* light blue */
-    color: #111827;
-    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
-}
-
-.goal-item .done-btn:hover {
-    background-color: #bfdbfe;            /* thoda dark blue */
-}
-.goal-item .done-btn {
-    background-color: var(--accent-soft);  /* light blue */
-    color: #111827;
-    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
-}
-
-.goal-item .done-btn:hover {
-    background-color: #bfdbfe;            /* thoda dark blue */
-}
-.goal-item .done-btn {
-    background-color: var(--accent-soft);  /* light blue */
-    color: #111827;
-    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
-}
-
-.goal-item .done-btn:hover {
-    background-color: #bfdbfe;            /* thoda dark blue */
-}
-.goal-item .del-btn {
-    background-color: var(--danger);      /* red from theme */
-    color: #f9fafb;
-    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4);
-}
-
-.goal-item .del-btn:hover {
-    background-color: #b91c1c;
-}
-@media (max-width: 768px) {
-
-    nav {
-        padding: 0 16px;
-        height: auto;
-        flex-direction: column;
-        gap: 10px;
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-
-    nav h1 {
-        font-size: 1.2rem;
-        text-align: center;
-    }
-
-    #main {
-        padding-top: 140px;
-    }
-
-    header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-        padding: 1.5rem;
-    }
-
-    .header-time {
-        font-size: 2.2rem;
-    }
-
-    .left h2 {
-        font-size: 1.6rem;
-    }
-
-    .right h2 {
-        font-size: 2rem;
-        padding-right: 0;
-    }
-
-    section.allelem {
-        padding: 0 16px 40px;
-    }
-
-    .allfeatures {
-        justify-content: center;
-    }
-
-    .elem {
-        width: 100%;
-        max-width: 320px;
-        height: 220px;
-    }
-
-    /* FULL PAGE */
-    .fullelem {
-        padding: 20px;
-        padding-top: 110px;
-    }
-
-    .back {
-        top: 12%;
-        right: 6%;
-    }
-
-    /* TODO PAGE */
-    .todo-fullpage .todo-container {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .todo-fullpage .todo-container .addtask,
-    .todo-fullpage .todo-container .alltask {
-        width: 100%;
-        height: auto;
-    }
-
-    /* DAY PLANNER */
-    .day-planner {
-        padding: 1.2rem;
-    }
-
-    .day-planner .day-planner-time {
-        width: 100%;
-    }
-
-    /* MOTIVATION */
+@media screen and (min-width: 768px) {
     .moti-fullpage .motivation-container {
-        width: 95%;
+        position: absolute;
+        /* Desktop pe wapas center fix */
+        width: 60%;
+        border: 6px solid var(--third);
+    }
+
+    .motivation-1 h2 {
+        font-size: 1.5rem;
     }
 
     .motivation-2 h1 {
+        font-size: 1.9rem;
+    }
+
+    .motivation-3 h3 {
         font-size: 1.4rem;
     }
 
-    /* POMODORO */
-    .timeh {
-        font-size: 3.8rem;
+    .motivation-wrapper img {
+        width: auto;
+        opacity: 0.25;
     }
-
-    .pomobtns {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    /* GOALS */
-    .goals-card {
-        padding: 22px;
-        border-radius: 22px;
-    }
-
-    .goals-input-row {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .goals-input-row button {
-        width: 100%;
-    }
-
 }
-@media (max-width: 1024px) {
 
-    header {
-        padding: 1.8rem;
-    }
+/* --- POMODORO (MOBILE READY) --- */
+.pmo-fullpage>h1 {
+    font-size: 1.8rem;
+    /* Mobile pe heading choti */
+    text-align: center;
+    margin-top: 10px;
+}
 
-    .header-time {
+.pomodor-container {
+    padding-top: 1.5rem;
+    /* Mobile pe space kam */
+}
+
+.timeh {
+    font-size: clamp(3.5rem, 15vw, 5.5rem);
+    /* Dynamic size: phone pe chota, desktop pe bada */
+    margin: 15px 0;
+}
+
+.pomobtns {
+    display: flex;
+    flex-wrap: wrap;
+    /* Buttons agar line me na aaye toh niche shift ho jayein */
+    justify-content: center;
+    gap: 12px;
+}
+
+.btnpomo {
+    padding: 10px 20px;
+    /* Tap karne ke liye bada area */
+    margin: 0;
+    /* Gap se handle ho rha h ab */
+    font-size: 0.9rem;
+    flex: 0 1 auto;
+    /* Mobile pe content ke hisaab se size le */
+}
+
+@media screen and (min-width: 768px) {
+    .pmo-fullpage>h1 {
         font-size: 2.8rem;
     }
 
-    .elem {
-        width: 200px;
-        height: 240px;
+    .pomodor-container {
+        padding-top: 3rem;
     }
 
-    .todo-fullpage .todo-container {
-        gap: 1rem;
+    .timeh {
+        font-size: 5.5rem;
+        margin: 25px 0;
     }
 
-    .todo-fullpage .todo-container .addtask {
-        width: 38%;
+    .btnpomo {
+        padding: 7px 22px;
+        margin: 0 7px;
+        font-size: 1rem;
+    }
+}
+
+/* --- GOALS SECTION (MOBILE READY) --- */
+.goals-fullpage h2 {
+    font-size: 1.8rem;
+    /* Mobile pe heading size kam */
+    text-align: center;
+    padding-left: 0;
+}
+
+.goals-wrapper {
+    margin-top: 1.2rem;
+    height: auto;
+    /* Fixed height hata di scroll ke liye */
+    align-items: flex-start;
+}
+
+.goals-card {
+    width: 95%;
+    height: auto;
+    border-radius: 24px;
+    /* Mobile pe thoda kam radius */
+    padding: 20px 15px;
+    margin-bottom: 20px;
+}
+
+/* Input Row: Mobile pe vertically stack hoga */
+.goals-input-row {
+    flex-direction: column;
+    border-radius: 18px;
+    padding: 12px;
+    gap: 10px;
+}
+
+.goals-input-row input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    /* Best for mobile input */
+}
+
+.goals-input-row button {
+    width: 100%;
+    /* Poora button phone pe */
+    padding: 12px;
+}
+
+.goals-list {
+    margin-top: 15px;
+    height: auto;
+    min-height: 250px;
+    max-height: 400px;
+    /* List bohot lambi na ho jaye mobile pe */
+}
+
+/* Goal item adjustment for small screens */
+.goal-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+}
+
+.goal-item .goal-btns {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+@media screen and (min-width: 768px) {
+    .goals-fullpage h2 {
+        font-size: 2.6rem;
+        text-align: left;
+        padding-left: 24px;
     }
 
-    .todo-fullpage .todo-container .alltask {
-        width: 60%;
+    .goals-wrapper {
+        margin-top: 2.3rem;
+        height: 84%;
+        align-items: center;
     }
 
+    .goals-card {
+        width: 92%;
+        height: 100%;
+        border-radius: 36px;
+        padding: 32px 36px;
+    }
+
+    .goals-input-row {
+        flex-direction: row;
+        border-radius: 28px;
+        padding: 18px 20px;
+    }
+
+    .goals-input-row input {
+        width: auto;
+    }
+
+    .goals-input-row button {
+        width: auto;
+    }
+
+    .goals-list {
+        height: calc(100% - 110px);
+        max-height: none;
+    }
+
+    .goal-item {
+        flex-direction: row;
+        align-items: center;
+    }
 }
