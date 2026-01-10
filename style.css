@@ -479,6 +479,7 @@ transform: translateY(-1px);
     border: 3px solid var(--border);
 }
 
+
 .day-planner .day-planner-time {
     display: flex;
     align-items: center;
@@ -548,6 +549,7 @@ transform: translateY(-1px);
 .motivation-3 h3 {
     padding: 1rem 1.5rem;
     font-size: 1.125rem;
+    text-align: right;
     font-weight: 600;
     background: var(--bg-secondary);
     color: var(--text-secondary);
@@ -556,12 +558,14 @@ transform: translateY(-1px);
 .motivation-wrapper img {
     position: absolute;
     width: 4rem;
-    top: 50%;
+    top: 25%;
     right: 5%;
     transform: translateY(-50%);
     opacity: 0.1;
 }
-
+.alltask::-webkit-scrollbar {
+    display: none;
+}
 /* ==================== POMODORO ==================== */
 .pmo-fullpage > h1 {
     font-size: clamp(2rem, 5vw, 3rem);
@@ -594,7 +598,7 @@ transform: translateY(-1px);
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     flex: 0 1 auto;
-    border-radius: 50px;
+    border-radius: 15px;
     border: 2px solid var(--accent);
     background: var(--bg-card);
     color: var(--accent);
@@ -777,7 +781,12 @@ transform: translateY(-1px);
     .right > h3 {
         font-size: 1.5rem;
     }
-
+.motivation-wrapper img {
+    position: absolute;
+   
+    top: 10%;
+  
+}
     .right > h4 {
         font-size: 1rem;
     }
@@ -803,7 +812,7 @@ transform: translateY(-1px);
 
     .fullelem {
         padding: 4rem;
-        padding-top: 7rem;
+        padding-top: 4rem;
     }
 
     .back {
@@ -819,6 +828,7 @@ transform: translateY(-1px);
     .todo-fullpage .todo-container {
         flex-direction: row;
         height: calc(100% - 4rem);
+    margin-top: 0;
 
         gap: 2rem;
     }
@@ -840,9 +850,12 @@ transform: translateY(-1px);
         justify-content: space-between;
         height: 84%;
         padding: 2rem;
+        
         overflow: auto;
     }
-
+.day-planner::-webkit-scrollbar {
+    display: none;
+}
     .day-planner .day-planner-time {
         width: 48%;
     }
@@ -878,7 +891,7 @@ transform: translateY(-1px);
     }
 
     .goals-fullpage h2 {
-        text-align: left;
+        text-align: center;
         padding-left: 2rem;
     }
 
