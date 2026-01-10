@@ -1,0 +1,672 @@
+@font-face {
+    font-family: light;
+    src: url(./Aeonik-Light.ttf);
+}
+
+
+@font-face {
+    font-family: bold;
+    src: url(./Aeonik-Bold.ttf);
+}
+
+
+@font-face {
+    font-family: normal;
+    src: url(./Aeonik-Regular.ttf);
+}
+
+
+:root {
+    --first: #2f2a25;
+    --second: #f6f1ea;
+    --third: #e3d5c8;
+    --fourth: #ffffff;
+}
+
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: light;
+
+
+
+    color: var(--first);
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--second);
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: var(--third);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    transition: all ease 0.6s;
+}
+
+
+nav button {
+    background-color: var(--fourth);
+    color: var(--first);
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: normal;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+
+
+}
+
+
+nav button:active {
+    scale: 0.98;
+}
+
+
+nav button i {
+    color: var(--third);
+
+
+}
+
+
+nav h1 {
+    font-size: 1.6rem;
+    font-family: normal;
+}
+
+
+section.allelem {
+    width: 100%;
+    padding: 0 40px 40px 40px;
+
+
+
+    position: relative;
+    min-height: calc(100vh - 120px);
+}
+
+
+section.allelem .allfeatures {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+header {
+    background-image: url(https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFuZHNjYXBlfGVufDB8fDB8fHww);
+    background-position: center;
+    background-size: cover;
+    width: 99.6%;
+    margin: 1rem 0;
+    border-radius: 10px;
+    padding: 2rem 2rem 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white !important;
+    margin-bottom: 1rem;
+}
+
+
+.header-time {
+    color: white;
+    font-size: 4rem;
+    font-family: bold;
+    margin: 20px 0;
+}
+
+
+.left h2 {
+    color: white;
+    font-size: 2.6rem;
+    font-family: normal;
+}
+
+
+.right h2 {
+    color: white;
+    font-size: 4rem;
+    font-family: normal;
+    padding-right: 2.5rem;
+}
+
+
+.left .date {
+    font-size: 2rem;
+    color: white;
+}
+
+
+.right>h3 {
+    color: white;
+    font-size: 2rem;
+    font-family: light;
+}
+
+
+.right>h4 {
+    color: white;
+    font-size: 1rem;
+    font-family: light;
+    letter-spacing: 2 !important;
+    padding-top: 10px;
+
+
+}
+body, nav, section, div, button {
+    transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+
+.elem {
+    background-color: var(--third);
+    border-radius: 0.3rem;
+    height: 260px;
+    overflow: hidden;
+    width: 238px;
+    position: relative;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all ease 0.8s;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+#main {
+    padding-top: 80px;
+}
+.elem>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.elem h2 {
+    position: absolute;
+    top: 10%;
+    font-size: 1rem;
+    left: 0;
+}
+
+
+.elem:active {
+    scale: 0.90;
+}
+
+
+.fullelem {
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100vw;
+    background-color: var(--second);
+    padding: 50px;
+
+
+    position: fixed;
+    inset: 0;
+    padding-top: 90px;
+    display: none;
+    z-index: 1000;
+    display: none;
+}
+
+
+.back {
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 7px 10px;
+    background-color: red;
+    color: black !important;
+    font-weight: 700;
+    font-size: 1.3rem;
+    border: none;
+}
+
+
+.back :active {
+    scale: 0.95;
+
+
+}
+
+
+.back i {
+    color: black !important;
+
+
+}
+
+
+/* 
+.todo-fullpage {
+    display: block;
+} */
+
+
+.todo-fullpage h2 {
+    font-size: 3rem;
+    text-align: center;
+    font-family: bold;
+
+
+}
+
+
+.todo-fullpage .todo-container {
+    height: 84%;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.todo-fullpage .todo-container .addtask {
+    border-radius: 10px;
+    width: 32%;
+    height: 100%;
+    background-color: var(--fourth);
+
+
+}
+
+
+.addtask h3 {
+    font-size: 1.5rem;
+    text-align: center !important;
+    font-family: bold;
+    padding-top: 1rem;
+}
+
+
+.addtask form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+
+
+}
+
+
+.addtask form input#task {
+    width: 100%;
+    padding: 15px 13px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--fourth);
+    border: none;
+    background-color: var(--first);
+}
+
+
+.addtask form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    border: none;
+    color: var(--fourth);
+    background-color: var(--first);
+}
+
+
+
+
+.todo-fullpage .todo-container .alltask {
+    border-radius: 10px;
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    overflow: auto;
+    padding: 1rem;
+    background-color: var(--fourth);
+
+
+}
+
+
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    background-color: var(--first);
+}
+
+
+.task h5 {
+    color: var(--fourth);
+    font-size: 1.5rem;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.task h5 span.false {
+    opacity: 0;
+}
+
+
+.task h5 span.true {
+    opacity: 1;
+}
+
+
+.task h5 span {
+    background-color: red;
+    margin-top: 4px;
+    padding: 4px 6px;
+    border-radius: 50px;
+    color: var(--first);
+    font-size: 10px;
+}
+
+
+.task button {
+    padding: 10px 12px;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    color: var(--fourth);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+.alltask::-webkit-scrollbar {
+    display: none;
+}
+
+
+#marks {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+    margin-bottom: 0.7rem;
+    padding: 5px 0;
+    width: 100%;
+}
+
+
+#marks input {
+    scale: 1.8;
+    cursor: pointer;
+    margin-left: 1rem;
+
+
+}
+
+
+#marks label {
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 15px;
+}
+
+
+.plan-fullpage h2 {
+    font-size: 3rem;
+    font-family: bold;
+    text-align: center;
+}
+
+
+
+.day-planner {
+    background-color: var(--fourth);
+    height: 84%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow: auto;
+
+
+    justify-content: space-between;
+}
+
+
+.day-planner .day-planner-time {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 49%;
+
+
+    margin-bottom: 1rem;
+}
+
+
+.day-planner-time input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: bold;
+}
+
+
+.day-planner-time input {
+    padding: 19px 13px;
+    font-size: 1.3rem;
+    outline: none;
+    overflow: hidden;
+    background-color: var(--second);
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-family: normal;
+    width: 100%;
+
+
+
+}
+
+
+.day-planner .day-planner-time p {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    font-size: 1rem;
+    font-family: normal;
+    color: black;
+}
+
+
+.day-planner::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+.moti-fullpage .motivation-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 6px solid var(--first);
+    transform: translate(-50%, -50%);
+    background-color: var(--fourth);
+    border-radius: 10px;
+    width: 60%;
+    /* filter: blur(150px); */
+}
+
+
+/* .moti-fullpage .motivation-container ::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    scale: 1.1;
+    background-color: var(--first);
+    z-index: 8;
+    
+    } */
+.moti-fullpage .motivation-container .container-wrapper {
+    z-index: 122;
+    border-radius: 50px;
+    position: absolute;
+    width: 100%;
+    background-color: red;
+    overflow: hidden;
+}
+
+
+.motivation-1 {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.motivation-1 h2 {
+    background-color: var(--second);
+    border-radius: 10px;
+    font-size: 1.6rem;
+    font-family: normal;
+    text-transform: capitalize;
+    font-weight: 700;
+    padding: 1.1rem;
+}
+
+
+
+
+.motivation-2 h1 {
+    padding: 0.5rem 1.5rem;
+    font-size: 2rem;
+    font-family: normal;
+}
+
+
+
+.motivation-3 h3 {
+    padding: 10px 20px;
+    background-color: var(--second);
+    border-radius: 10px;
+    font-size: 1.6rem;
+    font-family: normal;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+
+
+
+.motivation-3 {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+}
+
+
+.motivation-wrapper img {
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    opacity: 0.3;
+}
+
+
+.pomodor-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    font-family: bold;
+}
+
+
+.pmo-fullpage>h1 {
+    font-size: 50px;
+    text-align: center;
+
+
+
+}
+
+
+.timeh {
+    font-family: bold;
+    font-size: 8rem !important;
+    color: var(--third);
+    margin: 30px 0;
+}
+
+
+.btnpomo {
+    padding: 6px 22px;
+    border: 2px solid var(--third);
+    cursor: pointer;
+    font-family: normal;
+    margin: 0 7px;
+    color: black;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    font-family: normal;
+    box-shadow: 2px 2px 6px rgb(67, 65, 65);
+}
+
+
+.btnpomo:active {
+    scale: 0.94;
+    box-shadow: 1px 1px 1px black;
+
+
+}
+body.dark {
+    --first: #eaeaea;
+    --second: #0f0f11;
+    --third: #1c1c1f;
+    --fourth: #18181b;
+}
+
+
+body.forest {
+    --first: #1f2d24;
+    --second: #eef4ef;
+    --third: #cfe1d6;
+    --fourth: #ffffff;
+}  y dekh bhaiy colors s mera pura design khrb lgra h tu 4 alg alg theme de color apne hisab s
