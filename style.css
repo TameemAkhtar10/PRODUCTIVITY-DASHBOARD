@@ -66,12 +66,10 @@ body {
     color: var(--text-primary);
 }
 
-/* Smooth Transitions */
 * {
     transition: all 0.3s ease;
 }
 
-/* ==================== ANIMATED BORDER ==================== */
 @keyframes borderGlow {
     0%, 100% {
         border-color: var(--accent);
@@ -87,7 +85,6 @@ body {
     animation: borderGlow 3s ease-in-out infinite;
 }
 
-/* ==================== NAVIGATION ==================== */
 nav {
     position: fixed;
     top: 0;
@@ -132,7 +129,6 @@ nav button:active {
     transform: scale(0.98);
 }
 
-/* ==================== HEADER ==================== */
 header {
     background-image: url("https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=1200&auto=format&fit=crop&q=80");
     background-position: center;
@@ -189,7 +185,7 @@ body.forest header {
 }
 
 .header-time {
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: bold, sans-serif;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     letter-spacing: -1px;
@@ -296,16 +292,16 @@ section.allelem .allfeatures {
     cursor: pointer;
     border-radius: 50%;
     padding: 0.75rem 1rem;
-    background: #dc2626;
-    color: white;
+    background: red;
+    color: black;
     font-weight: 700;
     font-size: 1.25rem;
-    border: 2px solid #b91c1c;
+    border: 2px solid red;
 }
 
 .back:hover {
     transform: scale(1.1) rotate(90deg);
-    background: #b91c1c;
+    background: red;
 }
 
 /* ==================== TODO SECTION ==================== */
@@ -335,7 +331,7 @@ section.allelem .allfeatures {
     width: 100%;
     background: var(--bg-card);
     border-radius: 1.5rem;
-    padding: 1.5rem;
+    padding: 1rem;
     border: 3px solid var(--border);
 }
 
@@ -344,7 +340,12 @@ section.allelem .allfeatures {
     flex-direction: column;
     gap: 1rem;
 }
-
+.addtask h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: normal;
+    font-size: 1.5rem;
+}
 .addtask form input#task,
 .addtask form textarea {
     width: 100%;
@@ -415,15 +416,47 @@ section.allelem .allfeatures {
     border-color: var(--accent);
     transform: translateX(5px);
 }
-
+ .imp {
+    background: red;
+    margin: 3px;
+    padding: 3px 9px;
+    border-radius: 40px;
+    color: black;
+}
 .task h5 {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
     font-size: 1rem;
     word-break: break-word;
     flex: 1;
     color: var(--text-primary);
 }
-
-/* ==================== DAY PLANNER ==================== */
+.task button {
+       padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-dark)
+  );
+  color: var(--bg-card);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 14px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.task button:hover {
+transform: translateY(-1px);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--accent) 45%, transparent);
+  filter: brightness(1.05);
+}
+.task button:active {
+     transform: translateY(0);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--accent) 30%, transparent);
+}
 .plan-fullpage h2 {
     font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
@@ -480,7 +513,7 @@ section.allelem .allfeatures {
     letter-spacing: 0.5px;
 }
 
-/* ==================== MOTIVATION ==================== */
+
 .moti-fullpage .motivation-container {
     position: relative;
     top: 50%;
@@ -665,6 +698,22 @@ section.allelem .allfeatures {
     background: var(--bg-secondary);
     border-radius: 0.75rem;
     border: 2px solid var(--border);
+}
+.goal-item button {
+      padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-dark)
+  );
+  color: var(--bg-card);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 14px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
 .goal-item:hover {
@@ -867,6 +916,8 @@ section.allelem .allfeatures {
         flex-direction: row;
         align-items: center;
         padding: 1.25rem;
+    justify-content: space-between;
+
     }
 }
 

@@ -135,15 +135,15 @@ function todolist() {
         // yaha imp class ko string 'true' / 'false' me convert kar
         const impClass = e.imp ? 'true' : 'false';
 
-        sum += `
-      <div class="task">
-        <h5>
-          ${e.task}
-          <span class="${impClass}">Imp</span>
-        </h5>
-        <button id=${idx}>Mark As Completed</button>
-      </div>
-    `;
+      sum += `
+  <div class="task">
+    <h5>
+      ${e.task}
+      ${e.imp ? `<span class="imp">Imp</span>` : ``}
+    </h5>
+    <button id="${idx}" class="complete-btn">Mark As Completed</button>
+  </div>
+`;
     });
 
     alltasks.innerHTML = sum;
