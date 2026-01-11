@@ -73,10 +73,13 @@ body {
 
 /* ==================== ANIMATED BORDER ==================== */
 @keyframes borderGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         border-color: var(--accent);
         box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
     }
+
     50% {
         border-color: var(--accent-dark);
         box-shadow: 0 0 25px rgba(217, 119, 6, 0.5);
@@ -156,22 +159,22 @@ header::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, 
-        rgba(245, 158, 11, 0.7), 
-        rgba(217, 119, 6, 0.8));
+    background: linear-gradient(135deg,
+            rgba(245, 158, 11, 0.7),
+            rgba(217, 119, 6, 0.8));
     z-index: 1;
 }
 
 body.dark header::before {
-    background: linear-gradient(135deg, 
-        rgba(168, 85, 247, 0.7), 
-        rgba(147, 51, 234, 0.8));
+    background: linear-gradient(135deg,
+            rgba(168, 85, 247, 0.7),
+            rgba(147, 51, 234, 0.8));
 }
 
 body.forest header::before {
-    background: linear-gradient(135deg, 
-        rgba(2, 132, 199, 0.7), 
-        rgba(3, 105, 161, 0.8));
+    background: linear-gradient(135deg,
+            rgba(2, 132, 199, 0.7),
+            rgba(3, 105, 161, 0.8));
 }
 
 header * {
@@ -211,11 +214,11 @@ body.forest header {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.right > h3 {
+.right>h3 {
     font-size: 1.125rem;
 }
 
-.right > h4 {
+.right>h4 {
     font-size: 0.875rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -234,7 +237,8 @@ section.allelem {
 
 section.allelem .allfeatures {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Mobile: 2 cards per row */
+    grid-template-columns: repeat(2, 1fr);
+    /* Mobile: 2 cards per row */
     gap: 1.25rem;
 }
 
@@ -402,7 +406,8 @@ section.allelem .allfeatures {
 
 .task {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.75rem;
     padding: 1rem;
     border-radius: 0.75rem;
@@ -418,11 +423,58 @@ section.allelem .allfeatures {
 
 .task h5 {
     font-size: 1rem;
-    word-break: break-word;
-    flex: 1;
     color: var(--text-primary);
+    width: 100%;
+    word-break: break-word;
+    line-height: 1.4;
 }
 
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+}
+
+.imp {
+    padding: 0.35rem 0.75rem;
+    background-color: #dc2626;
+    border-radius: 999px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.task button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 0.65rem;
+    cursor: pointer;
+    background: var(--accent);
+    color: white;
+    border: 2px solid var(--accent-dark);
+}
+
+.task button:hover {
+    background: var(--accent-dark);
+}
+
+/* Desktop ke liye */
+@media (min-width: 768px) {
+    .task {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .task h5 {
+        flex: 1;
+    }
+    
+    .task-actions {
+        width: auto;
+    }
+}
 /* ==================== DAY PLANNER ==================== */
 .plan-fullpage h2 {
     font-size: clamp(2rem, 5vw, 3rem);
@@ -529,7 +581,7 @@ section.allelem .allfeatures {
 }
 
 /* ==================== POMODORO ==================== */
-.pmo-fullpage > h1 {
+.pmo-fullpage>h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
     margin-top: 1rem;
@@ -776,11 +828,11 @@ section.allelem .allfeatures {
         padding-right: 3rem;
     }
 
-    .right > h3 {
+    .right>h3 {
         font-size: 1.5rem;
     }
 
-    .right > h4 {
+    .right>h4 {
         font-size: 1rem;
     }
 
@@ -827,6 +879,11 @@ section.allelem .allfeatures {
     .todo-fullpage .todo-container .addtask {
         width: 32%;
         height: 100%;
+    }
+
+    .task h5 {
+        display: flex;
+        gap: 1rem;
     }
 
     .todo-fullpage .todo-container .alltask {

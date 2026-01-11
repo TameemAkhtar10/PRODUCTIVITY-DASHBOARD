@@ -126,23 +126,24 @@ function todolist() {
     let sum = ``;
 
     currenttask.forEach((e, idx) => {
-        // yaha imp class ko string 'true' / 'false' me convert kar
-        const impClass = e.imp ? 'true' : 'false';
+        // Check if task is important
+        const impBadge = e.imp ? `<span class="imp">Imp</span>` : '';
 
-      sum += `
-  <div class="task">
-    <h5>
-      ${e.task}
-      ${e.imp ? `<span class="imp">Imp</span>` : ``}
-    </h5>
-    <button id="${idx}" class="complete-btn">Mark As Completed</button>
-  </div>
-`;
+        sum += `
+            <div class="task">
+                <h5>${e.task}</h5>
+                <div class="task-actions">
+                    ${impBadge}
+                    <button id="${idx}">Mark As Completed</button>
+                </div>
+            </div>
+        `;
     });
 
     alltasks.innerHTML = sum;
     localStorage.setItem('currenttask', JSON.stringify(currenttask));
 
+    // Button click handler
     let completetaskbtn = document.querySelectorAll('.task button');
     completetaskbtn.forEach((btn) => {
         btn.addEventListener('click', function () {
@@ -152,8 +153,7 @@ function todolist() {
     });
 }
 
-
-    TodoTask();
+TodoTask();
 
 
     form.addEventListener('submit', (elem) => {
