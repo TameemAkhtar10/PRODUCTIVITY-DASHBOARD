@@ -99,11 +99,7 @@ function goalsFeature() {
 
   renderGoals();
 }
-
 goalsFeature();
-
-
-
 function todolist() {
 
     let form = document.querySelector('.addtask form')
@@ -172,7 +168,6 @@ TodoTask();
 
 }
 todolist()
-
 let dailyplanner = () => {
     let dayplandata = JSON.parse(localStorage.getItem('dayplandata')) || {}
     let dayplanner = document.querySelector('.day-planner')
@@ -279,7 +274,7 @@ let PomoDomo = () => {
 
                 }
 
-            }, 5);
+            }, 1000);
         }
 
     }
@@ -401,10 +396,7 @@ let header = () => {
 
 
 }
-
 header()
-
-
 function ThemeBtnnn() {
 
 

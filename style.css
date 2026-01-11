@@ -125,7 +125,19 @@ nav button {
     font-weight: 600;
     letter-spacing: 0.5px;
 }
+.goal-item p {
+    flex: 1;
+    font-size: 1rem;
+    color: var(--text-primary);
+    word-break: break-word;
+    line-height: 1.5;
+}
 
+.goal-item p.done {
+    text-decoration: line-through;
+    opacity: 0.5;
+    color: var(--text-secondary);
+}
 nav button:hover {
     background: var(--accent-dark);
     transform: scale(1.05);
@@ -135,8 +147,6 @@ nav button:active {
     transform: scale(0.98);
 }
 
-/* ==================== HEADER ==================== */
-/* ==================== HEADER ==================== */
 header {
     background-image: url("https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=1200&auto=format&fit=crop&q=80");
     background-position: center;
