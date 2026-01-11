@@ -36,7 +36,7 @@ function goalsFeature() {
     if (goals.length === 0) {
       goalsListBox.innerHTML = `
         <p class="empty-goals">
-          No goals yet 🚀 <br />
+          No goals yet  <br />
           Add your first goal
         </p>
       `;

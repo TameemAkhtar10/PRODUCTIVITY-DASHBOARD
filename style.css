@@ -66,10 +66,12 @@ body {
     color: var(--text-primary);
 }
 
+/* Smooth Transitions */
 * {
     transition: all 0.3s ease;
 }
 
+/* ==================== ANIMATED BORDER ==================== */
 @keyframes borderGlow {
     0%, 100% {
         border-color: var(--accent);
@@ -85,6 +87,7 @@ body {
     animation: borderGlow 3s ease-in-out infinite;
 }
 
+/* ==================== NAVIGATION ==================== */
 nav {
     position: fixed;
     top: 0;
@@ -129,6 +132,7 @@ nav button:active {
     transform: scale(0.98);
 }
 
+/* ==================== HEADER ==================== */
 header {
     background-image: url("https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=1200&auto=format&fit=crop&q=80");
     background-position: center;
@@ -185,7 +189,7 @@ body.forest header {
 }
 
 .header-time {
-    font-size: 2rem;
+    font-size: 3rem;
     font-family: bold, sans-serif;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     letter-spacing: -1px;
@@ -291,21 +295,20 @@ section.allelem .allfeatures {
     z-index: 210;
     cursor: pointer;
     border-radius: 50%;
-    background: red;
-    border: none;
-    outline: none;
-    padding: 6px 9px ;
-    color: black;
+    padding: 0.75rem 1rem;
+    background: #dc2626;
+    color: white;
     font-weight: 700;
-    font-size: 1.9rem;
-    border: 2px solid red;
+    font-size: 1.25rem;
+    border: 2px solid #b91c1c;
 }
 
 .back:hover {
     transform: scale(1.1) rotate(90deg);
-    background: red;
+    background: #b91c1c;
 }
 
+/* ==================== TODO SECTION ==================== */
 .todo-fullpage {
     width: 100%;
     height: 100%;
@@ -315,7 +318,6 @@ section.allelem .allfeatures {
 .todo-fullpage h2 {
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 1.5rem;
-    margin-top: 3rem;
     font-family: bold, sans-serif;
     color: var(--accent);
     text-align: center;
@@ -333,7 +335,7 @@ section.allelem .allfeatures {
     width: 100%;
     background: var(--bg-card);
     border-radius: 1.5rem;
-    padding: 1rem;
+    padding: 1.5rem;
     border: 3px solid var(--border);
 }
 
@@ -342,12 +344,7 @@ section.allelem .allfeatures {
     flex-direction: column;
     gap: 1rem;
 }
-.addtask h3 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-family: normal;
-    font-size: 1.5rem;
-}
+
 .addtask form input#task,
 .addtask form textarea {
     width: 100%;
@@ -418,47 +415,15 @@ section.allelem .allfeatures {
     border-color: var(--accent);
     transform: translateX(5px);
 }
- .imp {
-    background: red;
-    margin: 3px;
-    padding: 3px 9px;
-    border-radius: 40px;
-    color: black;
-}
+
 .task h5 {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
     font-size: 1rem;
     word-break: break-word;
     flex: 1;
     color: var(--text-primary);
 }
-.task button {
-       padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 12px;
-  border: 1.5px solid var(--border);
-  background: linear-gradient(
-    135deg,
-    var(--accent),
-    var(--accent-dark)
-  );
-  color: var(--bg-card);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 14px color-mix(in srgb, var(--accent) 35%, transparent);
-}
-.task button:hover {
-transform: translateY(-1px);
-  box-shadow: 0 10px 22px color-mix(in srgb, var(--accent) 45%, transparent);
-  filter: brightness(1.05);
-}
-.task button:active {
-     transform: translateY(0);
-  box-shadow: 0 4px 10px color-mix(in srgb, var(--accent) 30%, transparent);
-}
+
+/* ==================== DAY PLANNER ==================== */
 .plan-fullpage h2 {
     font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
@@ -479,7 +444,6 @@ transform: translateY(-1px);
     align-items: center;
     border: 3px solid var(--border);
 }
-
 
 .day-planner .day-planner-time {
     display: flex;
@@ -516,7 +480,7 @@ transform: translateY(-1px);
     letter-spacing: 0.5px;
 }
 
-
+/* ==================== MOTIVATION ==================== */
 .moti-fullpage .motivation-container {
     position: relative;
     top: 50%;
@@ -550,7 +514,6 @@ transform: translateY(-1px);
 .motivation-3 h3 {
     padding: 1rem 1.5rem;
     font-size: 1.125rem;
-    text-align: right;
     font-weight: 600;
     background: var(--bg-secondary);
     color: var(--text-secondary);
@@ -559,14 +522,12 @@ transform: translateY(-1px);
 .motivation-wrapper img {
     position: absolute;
     width: 4rem;
-    top: 25%;
+    top: 50%;
     right: 5%;
     transform: translateY(-50%);
     opacity: 0.1;
 }
-.alltask::-webkit-scrollbar {
-    display: none;
-}
+
 /* ==================== POMODORO ==================== */
 .pmo-fullpage > h1 {
     font-size: clamp(2rem, 5vw, 3rem);
@@ -599,7 +560,7 @@ transform: translateY(-1px);
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     flex: 0 1 auto;
-    border-radius: 15px;
+    border-radius: 50px;
     border: 2px solid var(--accent);
     background: var(--bg-card);
     color: var(--accent);
@@ -618,131 +579,157 @@ transform: translateY(-1px);
 }
 
 /* ==================== GOALS SECTION ==================== */
-/* ===== GOALS PAGE ===== */
-
-/* FULL PAGE */
 .goals-fullpage {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(6px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 2rem;
-  z-index: 100;
+    padding: 1.5rem;
 }
 
-/* close button */
-/* .goals-fullpage .back {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: red;
-  color: white;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-} */
-.goal-item p.done {
-  text-decoration: line-through;
-  opacity: 0.6;
+.goals-fullpage h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    text-align: center;
+    font-family: bold, sans-serif;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
 }
 
-/* title */
-.goals-title {
-  color: var(--accent);
-  font-size: 2.4rem;
-  margin-bottom: 2rem;
-}
-
-/* wrapper */
 .goals-wrapper {
-  width: 100%;
-  max-width: 1100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    height: auto;
 }
 
-/* cards */
+/* Goals Cards */
 .goals-card {
-  background: var(--bg-card);
-  border-radius: 2rem;
-  padding: 2rem;
-  border: 3px solid var(--border);
+    width: 100%;
+    background: var(--bg-card);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    border: 3px solid var(--border);
 }
 
 .goals-card h3 {
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
+    font-size: 1.25rem;
+    font-family: bold, sans-serif;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
-/* input row */
+/* Input Row */
 .goals-input-row {
-  display: flex;
-  gap: 1rem;
-  padding: 1.2rem;
-  background: var(--bg-secondary);
-  border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
 }
 
 .goals-input-row input {
-  flex: 1;
-  padding: 0.9rem 1rem;
-  border-radius: 1rem;
-  border: none;
-  font-size: 1rem;
-  background: var(--bg-card);
-  color: var(--text-primary);
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    outline: none;
+    font-family: light, sans-serif;
 }
 
 .goals-input-row input:focus {
-  outline: 2px solid var(--accent);
+    border-color: var(--accent);
+    background: var(--bg-card);
 }
 
-/* add button */
 .goals-input-row button {
-  padding: 0.9rem 1.3rem;
-  border-radius: 1rem;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
-  background: linear-gradient(
-    135deg,
-    var(--accent),
-    var(--accent-dark)
-  );
-  transition: 0.25s;
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent);
+    color: white;
+    border: 2px solid var(--accent-dark);
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    font-family: normal, sans-serif;
 }
-
 
 .goals-input-row button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -10px var(--accent);
+    background: var(--accent-dark);
+    transform: scale(1.02);
 }
 
 .goals-input-row button:active {
-  transform: scale(0.95);
+    transform: scale(0.98);
 }
 
-/* goals list */
+/* Goals List */
 .goals-list {
-  min-height: 300px;
+    margin-top: 1rem;
+    min-height: 15rem;
+    max-height: 25rem;
+    overflow-y: auto;
 }
 
-/* empty state */
 .empty-goals {
-  margin-top: 4rem;
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  opacity: 0.7;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    padding: 3rem 1rem;
+    line-height: 1.8;
+}
+
+/* Goal Items */
+.goal-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 0.75rem;
+    border: 2px solid var(--border);
+}
+
+.goal-item:hover {
+    border-color: var(--accent);
+}
+
+.goal-item .goal-text {
+    flex: 1;
+    font-size: 1rem;
+    color: var(--text-primary);
+    word-break: break-word;
+}
+
+.goal-item .goal-btns {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.goal-item .goal-btns button {
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.goal-item .goal-btns button:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.goal-item .goal-btns .delete-btn:hover {
+    background: #dc2626;
+    border-color: #b91c1c;
 }
 
 /* ==================== TABLET & DESKTOP ==================== */
@@ -783,9 +770,7 @@ transform: translateY(-1px);
     .left .date {
         font-size: 1.25rem;
     }
-.goals-card h3 {
-    text-align: center;
-}
+
     .right h2 {
         font-size: 3rem;
         padding-right: 3rem;
@@ -794,12 +779,7 @@ transform: translateY(-1px);
     .right > h3 {
         font-size: 1.5rem;
     }
-.motivation-wrapper img {
-    position: absolute;
-   
-    top: 10%;
-  
-}
+
     .right > h4 {
         font-size: 1rem;
     }
@@ -822,13 +802,10 @@ transform: translateY(-1px);
         top: 1.25rem;
         left: 1.25rem;
     }
-    .todo-fullpage h2 {
-        margin-top: 1rem;
-    }
 
     .fullelem {
         padding: 4rem;
-        padding-top: 2rem;
+        padding-top: 7rem;
     }
 
     .back {
@@ -844,8 +821,6 @@ transform: translateY(-1px);
     .todo-fullpage .todo-container {
         flex-direction: row;
         height: calc(100% - 4rem);
-    margin-top: 0;
-
         gap: 2rem;
     }
 
@@ -853,12 +828,6 @@ transform: translateY(-1px);
         width: 32%;
         height: 100%;
     }
- .addtask form {
-    gap: 2rem;
-}
-.addtask form>label {
-    font-size: 2rem;
-}
 
     .todo-fullpage .todo-container .alltask {
         width: 66%;
@@ -872,12 +841,9 @@ transform: translateY(-1px);
         justify-content: space-between;
         height: 84%;
         padding: 2rem;
-        
         overflow: auto;
     }
-.day-planner::-webkit-scrollbar {
-    display: none;
-}
+
     .day-planner .day-planner-time {
         width: 48%;
     }
@@ -912,28 +878,39 @@ transform: translateY(-1px);
         font-size: 1.125rem;
     }
 
-    /* .goals-fullpage h2 {
-        text-align: center;
-        padding-left: 2rem;
+    .goals-fullpage {
+        padding: 2rem 3rem;
+    }
+
+    .goals-fullpage h2 {
+        text-align: left;
+        font-size: 2.5rem;
     }
 
     .goals-wrapper {
-        margin-top: 2.5rem;
-        height: 84%;
-        align-items: center;
+        flex-direction: row;
+        gap: 2rem;
+        height: calc(100vh - 12rem);
     }
 
     .goals-card {
-        width: 92%;
+        border-radius: 1.5rem;
+        padding: 2rem;
+    }
+
+    .goals-left {
+        width: 35%;
         height: 100%;
-        border-radius: 2rem;
-        padding: 2.5rem;
+    }
+
+    .goals-right {
+        width: 63%;
+        height: 100%;
     }
 
     .goals-input-row {
         flex-direction: row;
-        border-radius: 1.25rem;
-        padding: 1.5rem;
+        align-items: center;
     }
 
     .goals-input-row input {
@@ -946,19 +923,23 @@ transform: translateY(-1px);
     }
 
     .goals-list {
-        height: calc(100% - 8rem);
-        max-height: none;
+        max-height: calc(100% - 5rem);
+        min-height: auto;
     }
 
     .goal-item {
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
         padding: 1.25rem;
-    justify-content: space-between;
+    }
 
-    } */
+    .goal-item .goal-btns {
+        width: auto;
+    }
 }
 
+/* ==================== SMALL PHONES ==================== */
 @media (max-width: 360px) {
     .addtask form textarea {
         min-height: 7rem;
