@@ -294,7 +294,7 @@ section.allelem .allfeatures {
 
 .back {
     position: fixed;
-    top: 1.5rem;
+    top: 1rem;
     right: 1.5rem;
     z-index: 210;
     cursor: pointer;
@@ -316,6 +316,7 @@ section.allelem .allfeatures {
 .todo-fullpage {
     width: 100%;
     height: 100%;
+    padding-top: 7rem  !important;
     padding: 1.5rem;
 }
 
@@ -398,7 +399,7 @@ section.allelem .allfeatures {
 .todo-fullpage .todo-container .alltask {
     width: 100%;
     min-height: 20rem;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 1.5rem;
     background: var(--bg-card);
     border: 3px solid var(--border);
@@ -406,10 +407,9 @@ section.allelem .allfeatures {
 
 .task {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 0.75rem;
     margin-bottom: 1rem;
     background: var(--bg-secondary);
@@ -446,8 +446,8 @@ section.allelem .allfeatures {
 }
 
 .task button {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.5rem;
     font-weight: 600;
     border-radius: 0.65rem;
     cursor: pointer;
@@ -465,14 +465,24 @@ section.allelem .allfeatures {
     .task {
         flex-direction: row;
         align-items: center;
+        padding: 1rem;
     }
     
     .task h5 {
         flex: 1;
+        font-size: 1.4rem;
     }
     
     .task-actions {
         width: auto;
+        gap: 2rem;
+    }
+    .task button {
+        font-size: 1rem;
+        padding: 10px 16px;
+    }
+    .imp  {
+        font-size: 1rem;
     }
 }
 /* ==================== DAY PLANNER ==================== */
@@ -737,6 +747,7 @@ section.allelem .allfeatures {
     flex-direction: row;
     justify-content: space-between;
     gap: 0.75rem;
+    align-items: center;
     padding: 1rem;
     margin-bottom: 1rem;
     background: var(--bg-secondary);
@@ -861,7 +872,6 @@ section.allelem .allfeatures {
     }
 
     .back {
-        top: 3rem;
         right: 3rem;
         font-size: 1.5rem;
     }
@@ -941,7 +951,10 @@ section.allelem .allfeatures {
 
     .goals-fullpage h2 {
         text-align: left;
-        font-size: 2.5rem;
+        padding-top: 4rem;
+        font-size: 48px;
+        text-align: center;
+    
     }
 
     .goals-wrapper {
