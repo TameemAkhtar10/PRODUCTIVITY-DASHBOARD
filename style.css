@@ -136,6 +136,7 @@ nav button:active {
 }
 
 /* ==================== HEADER ==================== */
+/* ==================== HEADER ==================== */
 header {
     background-image: url("https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=1200&auto=format&fit=crop&q=80");
     background-position: center;
@@ -143,13 +144,13 @@ header {
     width: 95%;
     margin: 1.5rem auto;
     border-radius: 1.5rem;
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
-    justify-content: center;
-    gap: 1.5rem;
+    text-align: left;
+    justify-content: space-between;
+    gap: 1rem;
     position: relative;
     overflow: hidden;
     border: 3px solid var(--accent);
@@ -159,22 +160,10 @@ header::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg,
-            rgba(245, 158, 11, 0.7),
-            rgba(217, 119, 6, 0.8));
+    background: linear-gradient(135deg, 
+        rgba(245, 158, 11, 0.7), 
+        rgba(217, 119, 6, 0.8));
     z-index: 1;
-}
-
-body.dark header::before {
-    background: linear-gradient(135deg,
-            rgba(168, 85, 247, 0.7),
-            rgba(147, 51, 234, 0.8));
-}
-
-body.forest header::before {
-    background: linear-gradient(135deg,
-            rgba(2, 132, 199, 0.7),
-            rgba(3, 105, 161, 0.8));
 }
 
 header * {
@@ -187,43 +176,104 @@ body.dark header {
     background-image: url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1200&auto=format&fit=crop&q=80");
 }
 
+body.dark header::before {
+    background: linear-gradient(135deg, 
+        rgba(168, 85, 247, 0.7), 
+        rgba(147, 51, 234, 0.8));
+}
+
 body.forest header {
     background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&auto=format&fit=crop&q=80");
 }
 
+body.forest header::before {
+    background: linear-gradient(135deg, 
+        rgba(2, 132, 199, 0.7), 
+        rgba(3, 105, 161, 0.8));
+}
+
+/* Header Left Side */
+.left {
+    flex: 1;
+}
+
 .header-time {
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: bold, sans-serif;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     letter-spacing: -1px;
+    margin-bottom: 0.5rem;
 }
 
 .left h2 {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     font-family: bold, sans-serif;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.25rem;
 }
 
 .left .date {
-    font-size: 1rem;
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+/* Header Right Side */
+.right {
+    text-align: left;
 }
 
 .right h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-family: normal, sans-serif;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.25rem;
 }
 
-.right>h3 {
-    font-size: 1.125rem;
+.right > h3 {
+    font-size: 1.4rem;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
 }
 
-.right>h4 {
-    font-size: 0.875rem;
+.right > h4 {
+    font-size: 0.75rem;
     letter-spacing: 2px;
     text-transform: uppercase;
+    opacity: 0.85;
 }
 
+/* Desktop Header */
+@media screen and (min-width: 768px) {
+    header {
+        width: 98%;
+        padding: 3rem;
+        gap: 2rem;
+    }
+
+    .header-time {
+        font-size: 4rem;
+    }
+
+    .left h2 {
+        font-size: 2.5rem;
+    }
+
+    .left .date {
+        font-size: 2rem;
+    }
+
+    .right h2 {
+        font-size: 4rem;
+    }
+
+    .right > h3 {
+        font-size: 1.5rem;
+    }
+
+    .right > h4 {
+        font-size: 1rem;
+    }
+}
 /* ==================== MAIN WRAPPER ==================== */
 #main {
     padding-top: calc(var(--nav-height) + 1rem);
@@ -236,9 +286,8 @@ section.allelem {
 }
 
 section.allelem .allfeatures {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* Mobile: 2 cards per row */
+   display: grid;
+    grid-template-columns: 1fr;  
     gap: 1.25rem;
 }
 
@@ -299,17 +348,17 @@ section.allelem .allfeatures {
     z-index: 210;
     cursor: pointer;
     border-radius: 50%;
-    padding: 0.75rem 1rem;
-    background: #dc2626;
-    color: white;
+    padding: 7px 10px;
+    background: red;
+    color: black;
     font-weight: 700;
     font-size: 1.25rem;
-    border: 2px solid #b91c1c;
+    border: 2px solid red;
 }
 
 .back:hover {
     transform: scale(1.1) rotate(90deg);
-    background: #b91c1c;
+    background: red;
 }
 
 /* ==================== TODO SECTION ==================== */
@@ -347,7 +396,7 @@ section.allelem .allfeatures {
 .addtask form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .addtask form input#task,
@@ -415,7 +464,12 @@ section.allelem .allfeatures {
     background: var(--bg-secondary);
     border: 2px solid var(--border);
 }
-
+.addtask h3 {
+    font-family: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+font-size: 1.4rem;
+}
 .task:hover {
     border-color: var(--accent);
     transform: translateX(5px);
@@ -577,18 +631,12 @@ section.allelem .allfeatures {
     padding: 1rem 1.5rem;
     font-size: 1.125rem;
     font-weight: 600;
+    text-align: right;
     background: var(--bg-secondary);
     color: var(--text-secondary);
 }
 
-.motivation-wrapper img {
-    position: absolute;
-    width: 4rem;
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-    opacity: 0.1;
-}
+
 
 /* ==================== POMODORO ==================== */
 .pmo-fullpage>h1 {
@@ -675,6 +723,7 @@ section.allelem .allfeatures {
     font-family: bold, sans-serif;
     color: var(--text-primary);
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 /* Input Row */
@@ -814,38 +863,7 @@ section.allelem .allfeatures {
         font-size: 1rem;
     }
 
-    header {
-        width: 98%;
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-        padding: 3rem;
-    }
-
-    .header-time {
-        font-size: 4rem;
-    }
-
-    .left h2 {
-        font-size: 2.5rem;
-    }
-
-    .left .date {
-        font-size: 1.25rem;
-    }
-
-    .right h2 {
-        font-size: 3rem;
-        padding-right: 3rem;
-    }
-
-    .right>h3 {
-        font-size: 1.5rem;
-    }
-
-    .right>h4 {
-        font-size: 1rem;
-    }
+   
 
     section.allelem {
         padding: 2rem 3rem;
@@ -1013,5 +1031,12 @@ section.allelem .allfeatures {
 @media (max-width: 360px) {
     .addtask form textarea {
         min-height: 7rem;
+    }
+    nav h1 {
+        font-size: 0.8rem;
+    }
+    nav button {
+        padding: 7px 10px;
+        font-size: 12px;
     }
 }
