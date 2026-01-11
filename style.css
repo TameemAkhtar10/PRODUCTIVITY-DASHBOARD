@@ -232,6 +232,7 @@ body.forest header::before {
 .right > h3 {
     font-size: 1.4rem;
     opacity: 0.9;
+    white-space: nowrap;
     margin-bottom: 0.25rem;
 }
 
