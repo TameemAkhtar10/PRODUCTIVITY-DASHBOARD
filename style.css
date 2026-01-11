@@ -1026,6 +1026,7 @@ font-size: 1.4rem;
     }
 }
 
+/* ==================== SMALL PHONES ==================== */
 @media (max-width: 360px) {
     .addtask form textarea {
         min-height: 7rem;
