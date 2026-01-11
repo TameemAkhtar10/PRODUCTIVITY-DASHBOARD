@@ -14,7 +14,6 @@
 }
 
 :root {
-    /* Sunset Glow Theme */
     --bg-primary: #fef3c7;
     --bg-secondary: #fde68a;
     --bg-card: #fffbeb;
@@ -27,7 +26,6 @@
 }
 
 body.dark {
-    /* Midnight Purple Theme */
     --bg-primary: #18181b;
     --bg-secondary: #27272a;
     --bg-card: #1e1e22;
@@ -39,7 +37,6 @@ body.dark {
 }
 
 body.forest {
-    /* Ocean Blue Theme */
     --bg-primary: #e0f2fe;
     --bg-secondary: #bae6fd;
     --bg-card: #f0f9ff;
@@ -67,12 +64,10 @@ body {
     color: var(--text-primary);
 }
 
-/* Smooth Transitions */
 * {
     transition: all 0.3s ease;
 }
 
-/* ==================== ANIMATED BORDER ==================== */
 @keyframes borderGlow {
 
     0%,
@@ -91,7 +86,6 @@ body {
     animation: borderGlow 3s ease-in-out infinite;
 }
 
-/* ==================== NAVIGATION ==================== */
 nav {
     position: fixed;
     top: 0;
@@ -202,7 +196,6 @@ body.forest header::before {
         rgba(3, 105, 161, 0.8));
 }
 
-/* Header Left Side */
 .left {
     flex: 1;
 }
@@ -227,7 +220,6 @@ body.forest header::before {
     opacity: 0.9;
 }
 
-/* Header Right Side */
 .right {
     text-align: left;
 }
@@ -255,7 +247,6 @@ body.forest header::before {
 }
 
 
-/* Desktop Header */
 @media screen and (min-width: 768px) {
     header {
         width: 98%;
@@ -287,7 +278,6 @@ body.forest header::before {
         font-size: 1rem;
     }
 }
-/* ==================== MAIN WRAPPER ==================== */
 #main {
     padding-top: calc(var(--nav-height) + 1rem);
 }
@@ -304,7 +294,6 @@ section.allelem .allfeatures {
     gap: 1.25rem;
 }
 
-/* ==================== FEATURE CARDS ==================== */
 .elem {
     background: var(--bg-card);
     border-radius: 1.25rem;
@@ -332,7 +321,7 @@ section.allelem .allfeatures {
     left: 1rem;
     font-size: 0.875rem;
     padding: 0.5rem 1rem;
-    border-radius: 8px;
+    border-radius: px;
     background: var(--accent);
 
     color: white;
@@ -341,7 +330,6 @@ section.allelem .allfeatures {
     border: 2px solid var(--accent-dark);
 }
 
-/* ==================== FULLSCREEN OVERLAY ==================== */
 .fullelem {
     height: 100vh;
     width: 100vw;
@@ -381,7 +369,6 @@ section.allelem .allfeatures {
     background: red;
 }
 
-/* ==================== TODO SECTION ==================== */
 .todo-fullpage {
     width: 100%;
     height: 100%;
@@ -536,7 +523,6 @@ font-size: 1.4rem;
     background: var(--accent-dark);
 }
 
-/* Desktop ke liye */
 @media (min-width: 768px) {
     .task {
         flex-direction: row;
@@ -561,7 +547,6 @@ font-size: 1.4rem;
         font-size: 1rem;
     }
 }
-/* ==================== DAY PLANNER ==================== */
 .plan-fullpage h2 {
     font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
@@ -618,7 +603,6 @@ font-size: 1.4rem;
     letter-spacing: 0.5px;
 }
 
-/* ==================== MOTIVATION ==================== */
 .moti-fullpage .motivation-container {
     position: relative;
     top: 50%;
@@ -660,7 +644,6 @@ font-size: 1.4rem;
 
 
 
-/* ==================== POMODORO ==================== */
 .pmo-fullpage>h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
@@ -710,7 +693,6 @@ font-size: 1.4rem;
     transform: scale(0.98);
 }
 
-/* ==================== GOALS SECTION ==================== */
 .goals-fullpage {
     padding: 1.5rem;
 }
@@ -731,7 +713,6 @@ font-size: 1.4rem;
     height: auto;
 }
 
-/* Goals Cards */
 .goals-card {
     width: 100%;
     background: var(--bg-card);
@@ -748,7 +729,6 @@ font-size: 1.4rem;
     text-align: center;
 }
 
-/* Input Row */
 .goals-input-row {
     display: flex;
     flex-direction: column;
@@ -796,7 +776,6 @@ font-size: 1.4rem;
     transform: scale(0.98);
 }
 
-/* Goals List */
 .goals-list {
     margin-top: 1rem;
     min-height: 15rem;
@@ -812,7 +791,6 @@ font-size: 1.4rem;
     line-height: 1.8;
 }
 
-/* Goal Items */
 .goal-item {
     display: flex;
     flex-direction: row;
@@ -866,7 +844,6 @@ font-size: 1.4rem;
     border-color: #b91c1c;
 }
 
-/* ==================== TABLET & DESKTOP ==================== */
 @media screen and (min-width: 768px) {
     :root {
         --nav-height: 72px;
@@ -1049,7 +1026,6 @@ font-size: 1.4rem;
     }
 }
 
-/* ==================== SMALL PHONES ==================== */
 @media (max-width: 360px) {
     .addtask form textarea {
         min-height: 7rem;

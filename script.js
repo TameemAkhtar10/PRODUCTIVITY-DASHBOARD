@@ -122,7 +122,6 @@ function todolist() {
     let sum = ``;
 
     currenttask.forEach((e, idx) => {
-        // Check if task is important
         const impBadge = e.imp ? `<span class="imp">Imp</span>` : '';
 
         sum += `
@@ -139,7 +138,7 @@ function todolist() {
     alltasks.innerHTML = sum;
     localStorage.setItem('currenttask', JSON.stringify(currenttask));
 
-    // Button click handler
+
     let completetaskbtn = document.querySelectorAll('.task button');
     completetaskbtn.forEach((btn) => {
         btn.addEventListener('click', function () {
@@ -335,7 +334,6 @@ let header = () => {
         let windfloor = Math.floor(real.current.wind_kph)
         wind.innerHTML = ` Wind : ${windfloor}km/h `
         cityyy.innerHTML = `${real.location.name} ${real.location.region}`
-        // console.log(real.location.name);
 
     }
 
@@ -405,7 +403,6 @@ function ThemeBtnnn() {
     const themes = ['cream', 'dark', 'forest'];
     let currentThemeIndex = 0;
 
-    // LOAD SAVED THEME
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.body.classList.remove('dark', 'forest');
@@ -415,7 +412,6 @@ function ThemeBtnnn() {
         currentThemeIndex = themes.indexOf(savedTheme);
     }
 
-    // THEME SWITCH
     themeBtn.addEventListener('click', () => {
         document.body.classList.remove('dark', 'forest');
 
