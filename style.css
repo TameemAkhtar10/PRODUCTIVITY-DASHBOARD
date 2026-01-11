@@ -236,7 +236,7 @@ body.forest header::before {
 }
 
 .right > h4 {
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     opacity: 0.85;
