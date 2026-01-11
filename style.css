@@ -107,7 +107,7 @@ nav {
 }
 
 nav h1 {
-    font-size: 1.25rem;
+    font-size: 0.9rem;
     font-family: bold, sans-serif;
     color: var(--accent);
     letter-spacing: 0.5px;
@@ -116,10 +116,10 @@ nav h1 {
 nav button {
     background: var(--accent);
     color: white;
-    padding: 0.625rem 1.5rem;
+    padding: 10px 14px;
     font-size: 0.875rem;
     font-family: normal, sans-serif;
-    border-radius: 50px;
+    border-radius: 4px;
     border: 2px solid var(--accent-dark);
     cursor: pointer;
     font-weight: 600;
