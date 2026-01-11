@@ -23,32 +23,36 @@ let opefeature = () => {
     });
 };
 opefeature();
-let goalsFeature = () => {
-    let goalInput = document.querySelector('#goal-input');
-    let addGoalBtn = document.querySelector('#add-goal-btn');
-    let goalsListBox = document.querySelector('#goals-list');
+function goalsFeature() {
+  const goalInput = document.querySelector('#goal-input');
+  const addGoalBtn = document.querySelector('#add-goal-btn');
+  const goalsListBox = document.querySelector('#goals-list');
 
-    if (!goalInput || !addGoalBtn || !goalsListBox) return;
+  if (!goalInput || !addGoalBtn || !goalsListBox) return;
 
-    // localStorage se data load
-    let goals = [];
-    if (localStorage.getItem('goals')) {
-        goals = JSON.parse(localStorage.getItem('goals'));
-    } else {
-        console.log('no goals yet...');
+  let goals = JSON.parse(localStorage.getItem('goals')) || [];
+
+  function renderGoals() {
+    if (goals.length === 0) {
+      goalsListBox.innerHTML = `
+        <p class="empty-goals">
+          No goals yet 🚀 <br />
+          Add your first goal
+        </p>
+      `;
+      return;
     }
 
-    // goals ko UI me dikhane wala function
-    function renderGoals() {
-        let sum = ``;
+    let html = '';
 
-        goals.forEach((g, idx) => {
-            sum += `
+    goals.forEach((g, idx) => {
+      html += `
         <div class="goal-item">
-          <p style="${g.done ? 'text-decoration: line-through; opacity: 0.8;' : ''}">
+          <p class="${g.done ? 'done' : ''}">
             ${g.text}
           </p>
-          <div>
+
+          <div class="goal-btns">
             <button class="done-btn" data-id="${idx}">
               ${g.done ? 'Undo' : 'Done'}
             </button>
@@ -58,57 +62,47 @@ let goalsFeature = () => {
           </div>
         </div>
       `;
-        });
+    });
 
-        goalsListBox.innerHTML = sum;
-        localStorage.setItem('goals', JSON.stringify(goals));
+    goalsListBox.innerHTML = html;
+    localStorage.setItem('goals', JSON.stringify(goals));
 
-        // buttons pe events
-        let doneBtns = document.querySelectorAll('.goal-item .done-btn');
-        let delBtns = document.querySelectorAll('.goal-item .del-btn');
-
-        doneBtns.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                let i = btn.getAttribute('data-id');
-                goals[i].done = !goals[i].done;
-                renderGoals();
-            });
-        });
-
-        delBtns.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                let i = btn.getAttribute('data-id');
-                goals.splice(i, 1);
-                renderGoals();
-            });
-        });
-    }
-
-    renderGoals();
-
-    // Add Goal button click
-    addGoalBtn.addEventListener('click', () => {
-        let text = goalInput.value.trim();
-        if (!text) return;
-
-        goals.push({
-            text: text,
-            done: false
-        });
-
-        goalInput.value = '';
+    document.querySelectorAll('.done-btn').forEach(btn => {
+      btn.onclick = () => {
+        const i = btn.dataset.id;
+        goals[i].done = !goals[i].done;
         renderGoals();
+      };
     });
 
-    // enter press se bhi add
-    goalInput.addEventListener('keyup', (e) => {
-        if (e.key === 'Enter') {
-            addGoalBtn.click();
-        }
+    document.querySelectorAll('.del-btn').forEach(btn => {
+      btn.onclick = () => {
+        const i = btn.dataset.id;
+        goals.splice(i, 1);
+        renderGoals();
+      };
     });
-};
+  }
+
+  addGoalBtn.onclick = () => {
+    const text = goalInput.value.trim();
+    if (!text) return;
+
+    goals.push({ text, done: false });
+    goalInput.value = '';
+    renderGoals();
+  };
+
+  goalInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') addGoalBtn.click();
+  });
+
+  renderGoals();
+}
 
 goalsFeature();
+
+
 
 function todolist() {
 

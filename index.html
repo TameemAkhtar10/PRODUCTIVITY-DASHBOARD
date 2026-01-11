@@ -82,7 +82,7 @@
                             <input id="task" type="text"
                                 placeholder="Enter Task " required>
                             <textarea placeholder="Enter Details..." cols="20"
-                                rows="6" name id required></textarea>
+                                rows="6" name id="textarea" required></textarea>
                             <div id="marks">
                                 <input type="checkbox" name id="check">
                                 <label for="check"> Mark As Important</label>
@@ -105,30 +105,42 @@
 
                 </div>
             </section>
-          <section class="fullelem goals-fullpage">
-    <button class="back" id="2">
-        <i class="ri-close-fill"></i>
-    </button>
+<section class="fullelem goals-fullpage">
 
-    <h2>Daily Goals</h2>
+  <!-- close button -->
+  <button class="back" id="2">
+    <i class="ri-close-fill"></i>
+  </button>
 
-    <div class="goals-wrapper">
-        <div class="goals-card">
-            <div class="goals-input-row">
-                <input
-                    id="goal-input"
-                    type="text"
-                    placeholder="Enter Your Goal ..."
-                />
-                <button id="add-goal-btn">Add Goal</button>
-            </div>
+  <h2 class="goals-title">Daily Goals</h2>
 
-            <div class="goals-list" id="goals-list">
-                <!-- goals yaha aayenge -->
-            </div>
-        </div>
+  <div class="goals-wrapper">
+
+    <!-- LEFT : Add Goal -->
+    <div class="goals-card goals-left">
+      <h3>Add Goal</h3>
+
+      <div class="goals-input-row">
+       <input id="goal-input" type="text" placeholder="Enter your goal..." />
+<button id="add-goal-btn">Add</button>
+      </div>
     </div>
+
+    <!-- RIGHT : Goals List -->
+    <div class="goals-card goals-right">
+      <h3>Your Goals</h3>
+
+      <div class="goals-list" id="goals-list">
+        <p class="empty-goals">
+          No goals yet 🚀 <br />
+          Add your first goal
+        </p>
+      </div>
+    </div>
+
+  </div>
 </section>
+
 
             <section class="fullelem moti-fullpage">
                 <button class="back " id="3"><i
